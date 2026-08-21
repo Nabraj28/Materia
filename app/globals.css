@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter, system-ui, sans-serif);
+  --font-mono: var(--font-jetbrains-mono, ui-monospace, monospace);
+
+  --color-primary: #9c4000;
+  --color-primary-hover: #803400;
+  --color-primary-light: #ffdbcb;
+  --color-background: #f8f9fa;
+  --color-foreground: #191c1d;
+  --color-surface: #ffffff;
+  --color-muted: #5d5e61;
+}
+
+body {
+  font-family: var(--font-sans, system-ui), sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+.hero-gradient {
+  background: linear-gradient(180deg, rgba(25, 28, 29, 0.3) 0%, rgba(25, 28, 29, 0.75) 100%);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+
