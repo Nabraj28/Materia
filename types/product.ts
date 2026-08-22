@@ -8,13 +8,13 @@ export interface SeedManufacturer {
 export interface SeedSpecification {
   groupName: string;
   columns: string[];
-  rows: Record<string, any>[];
+  rows: Record<string, string>[];
 }
 
 export interface SeedVariant {
   groupName: string;
   columns: string[];
-  rows: Record<string, any>[];
+  rows: Record<string, string>[];
 }
 
 export interface SeedProperties {
