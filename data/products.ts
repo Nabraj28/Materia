@@ -7,6 +7,7 @@ export interface ProductItem {
   imageUrl: string;
   specs: { label: string; value: string }[];
   tags: string[];
+  description: string;
 }
 
 export const PRODUCTS_CATALOG: ProductItem[] = [
@@ -23,6 +24,7 @@ export const PRODUCTS_CATALOG: ProductItem[] = [
       { label: "Fire Rating", value: "A2-s1, d0" },
     ],
     tags: ["Fire Rated", "Moisture"],
+    description: "High-quality, moisture-resistant plasterboard perfect for demanding interior wall applications. Features enhanced fire rating and durability for long-lasting structural integrity in commercial and residential builds.",
   },
   {
     id: "prod-2",
@@ -37,6 +39,7 @@ export const PRODUCTS_CATALOG: ProductItem[] = [
       { label: "Format", value: "1200 x 600" },
     ],
     tags: ["Heavy Duty"],
+    description: "Heavy-duty flooring system designed to support extreme load capacities. Ideal for industrial and high-traffic areas requiring robust, reliable subflooring solutions.",
   },
   {
     id: "prod-3",
@@ -51,6 +54,7 @@ export const PRODUCTS_CATALOG: ProductItem[] = [
       { label: "Width", value: "1200 mm" },
     ],
     tags: ["Eco", "Thermal"],
+    description: "Eco-friendly thermal insulation roll specifically developed for pitched roofs. Provides superior energy efficiency and temperature regulation while maintaining a sustainable footprint.",
   },
   {
     id: "prod-4",
@@ -65,6 +69,7 @@ export const PRODUCTS_CATALOG: ProductItem[] = [
       { label: "Dimensions", value: "1188 x 1998" },
     ],
     tags: ["Acoustic", "Air Purify"],
+    description: "Advanced acoustic ceiling boards with built-in air-purifying capabilities. Features a stylish round perforation pattern designed to optimize sound absorption in open-plan spaces.",
   },
   {
     id: "prod-5",
@@ -79,6 +84,7 @@ export const PRODUCTS_CATALOG: ProductItem[] = [
       { label: "Fire Rating", value: "DF Type A" },
     ],
     tags: ["Acoustic", "Fire Rated"],
+    description: "Premium sound-reducing plasterboard offering unparalleled acoustic insulation. Ideal for recording studios, cinemas, and environments requiring strict noise control without compromising fire safety.",
   },
   {
     id: "prod-6",
@@ -93,6 +99,7 @@ export const PRODUCTS_CATALOG: ProductItem[] = [
       { label: "Format", value: "600 x 600" },
     ],
     tags: ["Heavy Duty", "Raised Floor"],
+    description: "Versatile raised access flooring solution designed for modern office environments. Allows easy routing of cables and services beneath the floor while maintaining a high point load capacity.",
   },
   {
     id: "prod-7",
@@ -107,6 +114,7 @@ export const PRODUCTS_CATALOG: ProductItem[] = [
       { label: "Density", value: "18 kg/m³" },
     ],
     tags: ["Eco", "Thermal"],
+    description: "High-performance cavity wall insulation made from natural glass wool. Delivers excellent thermal and acoustic properties, significantly reducing energy costs in residential buildings.",
   },
   {
     id: "prod-8",
@@ -121,5 +129,6 @@ export const PRODUCTS_CATALOG: ProductItem[] = [
       { label: "Dimensions", value: "1200 x 2400" },
     ],
     tags: ["Acoustic", "Continuous Look"],
+    description: "Architectural acoustic panels featuring a sleek linear slot design. Creates a seamless, continuous aesthetic on ceilings while offering highly effective sound diffusion and absorption.",
   },
 ];

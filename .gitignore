@@ -21,6 +21,9 @@
 # Ignore Next.js AI agent files
 Agents.md
 Claude.md
+.agents
+.claude
+.windsurf
 
 # production
 /build
@@ -44,3 +47,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# antigravity
+skills-lock.json
+
+/app/generated/prisma

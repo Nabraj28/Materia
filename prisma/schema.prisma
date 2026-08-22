@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Category {
+  id             String    @id @default(uuid())
+  slug           String    @unique
+  name           String
+  genericFilters Json?
+  filters        Json?
+  products       Product[]
+}
+
+model Product {
+  id             String   @id @default(uuid())
+  slug           String   @unique
+  name           String
+  brand          String?
+  scope          String[]
+  description    String
+  images         String[]
+  applications   String[]
+
+  categoryId     String
+  category       Category @relation(fields: [categoryId], references: [id])
+
+  manufacturerId String?
+  manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
+
+  specifications SpecificationGroup[]
+  variants       VariantGroup[]
+  certifications Certification[]
+
+  propertiesId   String?      @unique
+  properties     Properties?  @relation(fields: [propertiesId], references: [id])
+}
+
+model Manufacturer {
+  id       String    @id @default(uuid())
+  name     String
+  location String
+  website  String
+  products Product[]
+}
+
+model SpecificationGroup {
+  id        String   @id @default(uuid())
+  groupName String
+  columns   String[]
+  rows      Json     // Array of key-value records
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model VariantGroup {
+  id        String   @id @default(uuid())
+  groupName String
+  columns   String[]
+  rows      Json     // Array of key-value records
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Properties {
+  id              String   @id @default(uuid())
+  ceMarked        Boolean
+  fireClass       String?
+  waterResistance String?
+  frostResistant  Boolean?
+  vaporPermeable  Boolean?
+  recyclable      Boolean?
+  durability      String?
+  product         Product?
+}
+
+model Certification {
+  id          String   @id @default(uuid())
+  name        String
+  issuedBy    String?
+  documentURL String?
+  badge       String?
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
