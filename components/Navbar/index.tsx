@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import BrandLogo from "./BrandLogo";
+import Index from "../BrandLogo";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-export default function Navbar() {
+const Navbar =()=> {
 
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,7 +44,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16 px-4 md:px-12 max-w-7xl mx-auto w-full">
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center">
-              <BrandLogo size="lg" />
+              <Index size="lg" />
             </Link>
 
             <nav className="hidden md:flex items-center gap-2" aria-label="Main Navigation">
@@ -52,8 +52,8 @@ export default function Navbar() {
                 href="/products"
                 className={`px-3 py-1.5 text-sm font-semibold transition-colors ${
                   isProductsActive
-                    ? "text-[#9c4000] border-b-2 border-[#9c4000]"
-                    : "text-gray-600 hover:text-[#9c4000]"
+                    ? "text-primary border-b-2 border-primary"
+                    : "text-gray-600 hover:text-primary"
                 }`}
               >
                 Products
@@ -89,8 +89,8 @@ export default function Navbar() {
           }`}
         >
           <div className="h-16 px-4 flex items-center justify-between border-b border-gray-200">
-            <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-              <BrandLogo size="lg" />
+            <Link href="/public" onClick={() => setMobileMenuOpen(false)}>
+              <Index size="lg" />
             </Link>
             <button
               type="button"
@@ -111,8 +111,8 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className={`px-4 py-3.5 rounded text-lg font-semibold transition-colors flex items-center justify-between ${
                 isProductsActive
-                  ? "bg-[#ffdbcb]/40 text-[#9c4000] border-l-4 border-[#9c4000]"
-                  : "text-gray-600 hover:bg-gray-50 hover:text-[#9c4000]"
+                  ? "bg-primary-light/40 text-primary border-l-4 border-primary"
+                  : "text-gray-600 hover:bg-gray-50 hover:text-primary"
               }`}
             >
               Products
@@ -122,6 +122,8 @@ export default function Navbar() {
       </div>
     </>
   );
-}
+};
+
+export default Navbar;
 
 

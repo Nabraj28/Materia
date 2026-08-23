@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Index from "@/components/Footer";
 import {
   ChevronRight,
   ShoppingCart,
@@ -243,7 +243,7 @@ export default function ProductDetailPage() {
         </div>
       </main>
 
-      <Footer />
+      <Index />
     </div>
   );
 }

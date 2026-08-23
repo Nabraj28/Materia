@@ -1,12 +1,13 @@
+import { Product } from '@/types/product';
 import { PrismaClient } from '@prisma/client';
-import { SeedProduct } from '@/types/product';
 
 
 export async function seedProducts(
   prisma: PrismaClient,
   category: { id: string },
-  productsData: SeedProduct[],
+  productsData: Product[],
 ): Promise<void> {
+
   for (const productData of productsData) {
     const mfgData = productData.manufacturer;
     let manufacturer = await prisma.manufacturer.findFirst({ where: { name: mfgData.name } });

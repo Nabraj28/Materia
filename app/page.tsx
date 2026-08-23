@@ -53,7 +53,7 @@ interface Certification {
 export default function Home() {
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1 flex flex-col">
         <Hero />

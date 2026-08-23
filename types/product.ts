@@ -1,23 +1,24 @@
-export interface SeedManufacturer {
+
+export interface Manufacturer {
   name: string;
   location: string;
   website: string;
   contact_number?: string;
 }
 
-export interface SeedSpecification {
+export interface Specification {
   groupName: string;
   columns: string[];
   rows: Record<string, string>[];
 }
 
-export interface SeedVariant {
+export interface Variant {
   groupName: string;
   columns: string[];
   rows: Record<string, string>[];
 }
 
-export interface SeedProperties {
+export interface Properties {
   ceMarked: boolean;
   fireClass?: string;
   waterResistance?: string;
@@ -27,26 +28,34 @@ export interface SeedProperties {
   durability?: string;
 }
 
-export interface SeedCertification {
+export interface Certification {
   name: string;
   issuedBy?: string;
   documentURL?: string;
   badge?: string;
 }
 
-export interface SeedProduct {
+export interface Product {
   id: string;
   slug: string;
   name: string;
   brand?: string;
   scope: string[];
-  manufacturer: SeedManufacturer;
+  manufacturer: Manufacturer;
   category: string;
   description: string;
   images: string[];
-  specifications?: SeedSpecification[];
-  variants?: SeedVariant[];
+  specifications?: Specification[];
+  variants?: Variant[];
   applications: string[];
-  properties?: SeedProperties;
-  certifications?: SeedCertification[];
+  properties?: Properties;
+  certifications?: Certification[];
 }
+
+export interface PaginationData {
+  total: number;
+  totalPages: number;
+  currentPage: number;
+  pageSize: number;
+}
+

@@ -1,6 +1,6 @@
-import {SeedProduct} from "@/types/product";
+import {Product} from "@/types/product";
 
-export const InsulationSeedData: SeedProduct[] = [
+export const InsulationSeedData: Product[] = [
     {
         "id": "thermocore-glasswool-roll-light-035",
         "slug": "thermocore-glasswool-roll-light-035",

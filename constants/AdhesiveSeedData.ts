@@ -1,6 +1,6 @@
-import {SeedProduct} from "@/types/product";
+import {Product} from "@/types/product";
 
-export const AdhesiveSeedData: SeedProduct[] = [
+export const AdhesiveSeedData: Product[] = [
     {
         "id": "bondcraft-cementitious-tile-adhesive-c2te",
         "slug": "bondcraft-cementitious-tile-adhesive-c2te",
