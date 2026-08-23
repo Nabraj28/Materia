@@ -66,18 +66,15 @@ export default function ProductListSection({
   }
 
   return (
-    <section className="md:col-span-9 space-y-4">
+    <section className="w-full md:col-span-9 space-y-4">
       {/* Utilities Bar */}
-      <div className="bg-white p-3 border border-gray-200 rounded flex flex-col sm:flex-row gap-3 items-center justify-between shadow-xs">
-        <span className="text-sm text-gray-600 font-medium">
-          Showing <strong className="text-gray-900">
-          {allProducts.length}</strong> of{" "}
-          <strong className="text-gray-900">
-            {totalResults}
-          </strong> results
+      <div className="bg-white p-3 border border-gray-200 rounded flex items-center justify-between shadow-xs">
+        <span className="text-xs sm:text-sm text-gray-600 font-medium">
+          Showing <strong className="text-gray-900">{allProducts.length}</strong> of{" "}
+          <strong className="text-gray-900">{totalResults}</strong> results
         </span>
 
-        <div className="flex items-center gap-2 border-l border-gray-200 pl-3 ml-auto">
+        <div className="flex items-center gap-1.5 sm:gap-2 border-l border-gray-200 pl-2.5 sm:pl-3">
           <button
             type="button"
             onClick={() => setViewMode("grid")}
@@ -110,8 +107,8 @@ export default function ProductListSection({
         <div
           className={
             viewMode === "grid"
-              ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-              : "flex flex-col gap-4"
+              ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+              : "flex flex-col gap-3 sm:gap-4"
           }
         >
           {allProducts.map((product) => (
@@ -123,7 +120,7 @@ export default function ProductListSection({
           ))}
         </div>
       ) : (
-        <div className="bg-white border border-dashed border-gray-300 p-12 text-center rounded">
+        <div className="bg-white border border-dashed border-gray-300 p-8 sm:p-12 text-center rounded">
           <p className="text-gray-500 text-sm">
             No materials found for the selected filter.
           </p>
@@ -132,13 +129,13 @@ export default function ProductListSection({
 
       {/* Load More / Back to Top Button */}
       {allProducts.length > 0 && (
-        <div className="flex flex-col items-center justify-center pt-8 pb-4 gap-2">
+        <div className="flex flex-col items-center justify-center pt-6 sm:pt-8 pb-4 gap-2">
           {hasMore ? (
             <button
               type="button"
               onClick={handleLoadMore}
               disabled={loadingMore}
-              className="px-6 py-2.5 bg-white border border-gray-300 hover:border-primary text-gray-800 hover:text-primary text-sm font-semibold rounded shadow-xs transition-colors cursor-pointer flex items-center gap-2 disabled:opacity-50"
+              className="w-full sm:w-auto px-6 py-2.5 bg-white border border-gray-300 hover:border-primary text-gray-800 hover:text-primary text-sm font-semibold rounded shadow-xs transition-colors cursor-pointer flex items-center justify-center gap-2 disabled:opacity-50"
             >
               {loadingMore ? (
                 <>
@@ -153,7 +150,7 @@ export default function ProductListSection({
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="px-6 py-2.5 bg-white border border-gray-300 hover:border-primary text-gray-800 hover:text-primary text-sm font-semibold rounded shadow-xs transition-colors cursor-pointer flex items-center gap-2"
+              className="w-full sm:w-auto px-6 py-2.5 bg-white border border-gray-300 hover:border-primary text-gray-800 hover:text-primary text-sm font-semibold rounded shadow-xs transition-colors cursor-pointer flex items-center justify-center gap-2"
             >
               <ArrowUp className="w-4 h-4 text-primary" />
               Back to Top

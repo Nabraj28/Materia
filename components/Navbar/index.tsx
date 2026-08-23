@@ -40,8 +40,8 @@ const Navbar =()=> {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 w-full z-40 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
-        <div className="flex justify-between items-center h-16 px-4 md:px-12 max-w-7xl mx-auto w-full">
+      <header className="sticky top-0 z-40 w-full bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div className="container-main flex justify-between items-center h-16">
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center">
               <Index size="lg" />

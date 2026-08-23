@@ -29,5 +29,27 @@ body {
   -webkit-backdrop-filter: blur(10px);
 }
 
+@layer utilities {
+  /* Full padding — use on top-level page sections */
+  .padding {
+    @apply px-4 sm:px-8 lg:px-16 py-6 sm:py-8 lg:py-12;
+  }
+
+  /* Horizontal padding only — use on Navbar, Footer, page mains */
+  .padding-x {
+    @apply px-4 sm:px-8 lg:px-16;
+  }
+
+  /* Vertical padding only */
+  .padding-y {
+    @apply py-6 sm:py-8 lg:py-12;
+  }
+
+  /* Constrained container — centres content with max-width + padding-x */
+  .container-main {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-16;
+  }
+}
+
 
 
