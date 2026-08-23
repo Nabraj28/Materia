@@ -1,12 +1,17 @@
 "use client";
 
+import {
+  LayoutGrid,
+  List,
+  Loader2,
+  ArrowUp
+} from "lucide-react";
 import { useState } from "react";
-import { LayoutGrid, List, Loader2, ArrowUp } from "lucide-react";
 import { Product } from "@prisma/client";
-import { useSearchParams } from "next/navigation";
 import { PaginationData } from "@/types/product";
+import { useSearchParams } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
-import { loadMoreProducts } from "../../app/products/actions";
+import { loadMoreProducts } from "@/app/products/actions";
 
 interface ProductListSectionProps {
   initialProducts: Product[];
@@ -65,8 +70,11 @@ export default function ProductListSection({
       {/* Utilities Bar */}
       <div className="bg-white p-3 border border-gray-200 rounded flex flex-col sm:flex-row gap-3 items-center justify-between shadow-xs">
         <span className="text-sm text-gray-600 font-medium">
-          Showing <strong className="text-gray-900">{allProducts.length}</strong> of{" "}
-          <strong className="text-gray-900">{totalResults}</strong> results
+          Showing <strong className="text-gray-900">
+          {allProducts.length}</strong> of{" "}
+          <strong className="text-gray-900">
+            {totalResults}
+          </strong> results
         </span>
 
         <div className="flex items-center gap-2 border-l border-gray-200 pl-3 ml-auto">

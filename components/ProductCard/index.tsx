@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Package } from "lucide-react";
+import {Product} from "@prisma/client";
 
 interface ProductCardProps {
   product: {
@@ -15,7 +16,7 @@ interface ProductCardProps {
     images?: string[];
   };
   viewMode?: "grid" | "list";
-  onAdd?: (product: any) => void;
+  onAdd?: (product: Product) => void;
 }
 
 export default function ProductCard({
@@ -36,7 +37,7 @@ export default function ProductCard({
   if (viewMode === "list") {
     return (
       <Link href={`/products/${productId}`} className="group outline-none">
-        <article className="bg-white border border-gray-200 flex flex-col sm:flex-row hover:border-[#9c4000] transition-colors rounded overflow-hidden shadow-xs hover:shadow-sm">
+        <article className="bg-white border border-gray-200 flex flex-col sm:flex-row hover:border-primary transition-colors rounded overflow-hidden shadow-xs hover:shadow-sm">
           {/* Thumbnail */}
           <div className="sm:w-56 h-48 sm:h-auto bg-gray-50 relative border-b sm:border-b-0 sm:border-r border-gray-200 flex items-center justify-center p-4 shrink-0">
             <div className="relative w-full h-full flex items-center justify-center">
@@ -58,11 +59,11 @@ export default function ProductCard({
           </div>
 
           {/* Content */}
-          <div className="p-4 sm:p-5 flex flex-col flex-grow justify-start gap-2">
+          <div className="p-4 sm:p-5 flex flex-col grow justify-start gap-2">
             <span className="font-mono text-xs uppercase text-gray-500 block">
               {categoryName}
             </span>
-            <h3 className="text-lg font-semibold text-gray-900 leading-tight group-hover:text-[#9c4000] transition-colors">
+            <h3 className="text-lg font-semibold text-gray-900 leading-tight group-hover:text-primary transition-colors">
               {product.name}
             </h3>
             {product.description && (
@@ -78,7 +79,7 @@ export default function ProductCard({
 
   return (
     <Link href={`/products/${productId}`} className="group outline-none h-full block">
-      <article className="bg-white border border-gray-200 flex flex-col hover:border-[#9c4000] transition-colors rounded overflow-hidden shadow-xs hover:shadow-sm h-full">
+      <article className="bg-white border border-gray-200 flex flex-col hover:border-primary transition-colors rounded overflow-hidden shadow-xs hover:shadow-sm h-full">
         {/* Product Image */}
         <div className="aspect-square bg-gray-50 relative w-full border-b border-gray-200 flex items-center justify-center p-4 overflow-hidden">
           <div className="relative w-full h-full flex items-center justify-center">
@@ -100,11 +101,11 @@ export default function ProductCard({
         </div>
 
         {/* Product Details */}
-        <div className="p-4 flex flex-col flex-grow justify-start gap-2">
+        <div className="p-4 flex flex-col grow justify-start gap-2">
           <span className="font-mono text-xs uppercase text-gray-500 block">
             {categoryName}
           </span>
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900 leading-snug group-hover:text-[#9c4000] transition-colors">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 leading-snug group-hover:text-primary transition-colors">
             {product.name}
           </h3>
           {product.description && (
