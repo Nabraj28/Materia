@@ -1,22 +1,28 @@
 "use client";
 
+import {
+  Filter,
+  ChevronDown,
+  ChevronUp
+} from "lucide-react";
 import { useState } from "react";
-import { Filter, ChevronDown, ChevronUp, X } from "lucide-react";
 import { Category } from "@prisma/client";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import FilterPanel from "@/components/Filter";
+import { useSearchParams } from "next/navigation";
 
 interface ProductFilterSectionProps {
   categories: Category[];
 }
 
-export default function ProductFilterSection({
+const ProductFilterSection: React.FunctionComponent<ProductFilterSectionProps> =({
   categories,
-}: ProductFilterSectionProps) {
-  const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+})=> {
+
   const searchParams = useSearchParams();
   const selectedCategories = searchParams.getAll("category");
   const hasActiveFilters = selectedCategories.length > 0;
+
+  const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
   return (
     <div className="w-full md:col-span-3">
@@ -59,3 +65,5 @@ export default function ProductFilterSection({
     </div>
   );
 }
+
+export default ProductFilterSection;
