@@ -10,7 +10,7 @@ A user can:
 
 1. **Browse products** - paginated with a "Load more" button rather than traditional numbered pages, to keep the browsing flow continuous.
 2. **Search products** - free-text search across the catalog.
-3. **Filter products** - by category and their specific attributes using dynamic filtering.
+3. **Filter products** - by category and by product specific attributes.
 4. **Open a product** - to view its detailed page with full specifications and information.
 ---
 
@@ -25,7 +25,7 @@ To figure out a realistic approach within the given timeframe, I researched two 
 
 By comparing the two, I synthesized the essential features and designed my own database schema from scratch. This allowed me to build a structure that was realistic for the industry, but manageable enough to complete within the assignment's time limit.
 
-**Scope decision on data:** I used fictional product data rather than copying real content. This avoids IP/confidentiality concerns while still reflecting realistic categories, naming conventions, and technical specifications.
+**Scope decision on data:** I used fictional product data rather than copying real content. This avoids IP/confidentiality concerns while still reflecting realistic categories, naming conventions, and technical specifications. Product images are sourced from Unsplash (free to use, no attribution required) for the same reason.
 
 ---
 
@@ -55,19 +55,50 @@ I picked two categories rather than trying to cover a vast catalog. This allowed
 - **Neon** (serverless Postgres)
 - **Tailwind CSS**
 
-### Running locally
+### Running locally 
 
+First install the dependencies:
 ```bash
 npm install
 ```
-
+**1. Quick Start (Recommended)**
+  To save you time, I have provided a pre-configured and seeded Neon database URL in my submission email.
 Create a `.env` file with:
 
 ```
-DATABASE_URL=your_neon_postgres_connection_string
+DATABASE_URL="<url_from_my_email>"
 ```
-then
+Then, simply start the development server:
 
 ```bash
 npm run dev
 ```
+**2. Alternative: Using your own database**
+   If you prefer to connect your own Postgres database, add your connection string to the .env file:
+
+```bash
+DATABASE_URL="your_neon_postgres_connection_string"
+```
+
+Then, run the following commands to generate the Prisma client, sync the schema, seed the mock data, and start the app:
+
+```bash
+npx prisma generate
+npx prisma db push
+npx prisma db seed
+npm run dev
+```
+
+## Known limitations & next steps
+
+Being upfront about what isn't done yet, and why, rather than letting it be discovered:
+
+- **Filters are currently simple.** The existing implementation handles basic category-based and property-based filtering. The natural next step is to evolve this into a fully dynamic, category-specific filtering system.
+- **No product comparison or admin page.** These features were intentionally kept out of scope for this initial version. My priority was to ensure the core requirements i.e. product discovery, search, filtering, and detail views were robust and highly functional before expanding the feature set.
+
+## Use of AI tools
+
+AI was used throughout, in line with the assignment's guidelines, and everything submitted was reviewed and understood before being included:
+
+**Architecture & Data:** Used AI for an initial consultation on how to design the product database schema, as well as to generate realistic dummy data and write the seed files.
+**Code Review & UI:** Leveraged AI assistants (specifically utilizing Next.js best practices, web design guidelines, and component building tools) to review the project, suggest improvements, and refine UI components.

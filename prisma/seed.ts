@@ -1,13 +1,13 @@
 import "dotenv/config";
-import { prisma } from "../lib/prisma";
-import { CategorySeedData } from "../constants/CategorySeedData";
-import { AdhesiveSeedData } from "../constants/AdhesiveSeedData";
-import { InsulationSeedData } from "../constants/InsulationSeedData";
+import { prisma } from "@/lib/prisma";
 import { Product } from "@/types/product";
+import { CategorySeedData } from "@/constants/CategorySeedData";
+import { AdhesiveSeedData } from "@/constants/AdhesiveSeedData";
+import { InsulationSeedData } from "@/constants/InsulationSeedData";
 
 async function seedProducts(products: Product[]) {
   for (const p of products) {
-    // 1. Find or create manufacturer if present
+    // Find or create manufacturer if present
     let manufacturerId: string | undefined = undefined;
     if (p.manufacturer) {
       const existingManufacturer = await prisma.manufacturer.findFirst({
@@ -28,7 +28,7 @@ async function seedProducts(products: Product[]) {
       }
     }
 
-    // 2. Find category by name or slug
+    // Find category by name or slug
     const category = await prisma.category.findFirst({
       where: {
         OR: [
@@ -43,7 +43,7 @@ async function seedProducts(products: Product[]) {
       continue;
     }
 
-    // 3. Create or update properties record
+    // Create or update properties record
     let propertiesId: string | undefined = undefined;
     if (p.properties) {
       const existingProduct = await prisma.product.findUnique({
@@ -81,7 +81,7 @@ async function seedProducts(products: Product[]) {
       }
     }
 
-    // 4. Upsert product
+    // Upsert product
     const productRecord = await prisma.product.upsert({
       where: { slug: p.slug },
       update: {
@@ -110,7 +110,7 @@ async function seedProducts(products: Product[]) {
       },
     });
 
-    // 5. Clean up & insert relations (specifications, variants, certifications)
+    // Clean up & insert relations (specifications, variants, certifications)
     await prisma.specificationGroup.deleteMany({ where: { productId: productRecord.id } });
     if (p.specifications && p.specifications.length > 0) {
       await prisma.specificationGroup.createMany({
@@ -118,7 +118,7 @@ async function seedProducts(products: Product[]) {
           productId: productRecord.id,
           groupName: s.groupName,
           columns: s.columns,
-          rows: s.rows as any,
+          rows: s.rows,
         })),
       });
     }
@@ -130,7 +130,7 @@ async function seedProducts(products: Product[]) {
           productId: productRecord.id,
           groupName: v.groupName,
           columns: v.columns,
-          rows: v.rows as any,
+          rows: v.rows,
         })),
       });
     }
@@ -153,7 +153,7 @@ async function seedProducts(products: Product[]) {
 async function main() {
   console.log("Seeding database...");
 
-  // 1. Seed Categories
+  // Seed Categories
   console.log("Seeding categories...");
   for (const cat of CategorySeedData) {
     await prisma.category.upsert({
@@ -169,11 +169,11 @@ async function main() {
     });
   }
 
-  // 2. Seed Adhesives Products
+  // Seed Adhesives Products
   console.log("Seeding adhesive products...");
   await seedProducts(AdhesiveSeedData);
 
-  // 3. Seed Insulation Products
+  // Seed Insulation Products
   console.log("Seeding insulation products...");
   await seedProducts(InsulationSeedData);
 
