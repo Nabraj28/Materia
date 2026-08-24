@@ -41,8 +41,6 @@ const ProductDetailPage: React.FunctionComponent<PageProps> = async({ params })=
     scope
   } = product;
 
-  console.log('product', product);
-
   return (
     <main className="flex-1 container-main padding-y">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">

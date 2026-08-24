@@ -4,21 +4,18 @@ import { Category, Product } from "@prisma/client";
 import ProductListSection from "@/components/ProductList";
 import ProductSearchBar from "@/components/ProductSearchBar";
 import ProductFilterSection from "@/components/ProductFilter";
-
-import { GenericFilterItem } from "@/types/category";
+import {SpecFilterItem} from "@/lib/product";
 
 export interface ProductsContentProps {
   products: Product[];
   categories: Category[];
   activeCategory?: Category | null;
-  genericFilters?: GenericFilterItem[];
   pagination?: PaginationData;
 }
 
 export default function ProductsContent({
   products,
   categories,
-  genericFilters,
   pagination,
 }: ProductsContentProps) {
   return (
@@ -43,7 +40,6 @@ export default function ProductsContent({
         {/* Mobile Filter Accordion & Desktop Sidebar Filter Panel */}
         <ProductFilterSection
           categories={categories}
-          genericFilters={genericFilters}
         />
 
         {/* Product Cards Container & Load More */}

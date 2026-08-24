@@ -22,7 +22,9 @@ export default function ProductListSection({
   initialProducts,
   pagination: initialPagination,
 }: ProductListSectionProps) {
+
   const searchParams = useSearchParams();
+
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   const [extraProducts, setExtraProducts] = useState<Product[]>([]);
@@ -66,6 +68,49 @@ export default function ProductListSection({
     }
   }
 
+  // function updateParams(modifier: (params: URLSearchParams) => void) {
+  //   const params = new URLSearchParams(searchParams.toString())
+  //   modifier(params)
+  //   params.delete('page')
+  //
+  //   const queryString = params.toString()
+  //   window.history.replaceState(null, '', queryString ? `?${queryString}` : window.location.pathname)
+  // }
+
+  // function toggleSelect(field: string, val: string) {
+  //   updateParams((params) => {
+  //     if (params.get(field) === val) {
+  //       params.delete(field)
+  //     } else {
+  //       params.set(field, val)
+  //     }
+  //   })
+  // }
+
+  // function toggleMulti(field: string, val: string) {
+  //   updateParams((params) => {
+  //     const current = params.getAll(field)
+  //     params.delete(field)
+  //
+  //     const next = current.includes(val)
+  //         ? current.filter((v) => v !== val)
+  //         : [...current, val]
+  //
+  //     next.forEach((v) => params.append(field, v))
+  //   })
+  // }
+
+  // function updateRange(field: string, type: 'min' | 'max', value: string) {
+  //   updateParams((params) => {
+  //     const key = `${field}_${type}`
+  //     if (!value) {
+  //       params.delete(key)
+  //     } else {
+  //       params.set(key, value)
+  //     }
+  //   })
+  // }
+
   return (
     <section className="w-full md:col-span-9 space-y-4">
       {/* Utilities Bar */}
@@ -102,6 +147,132 @@ export default function ProductListSection({
           </button>
         </div>
       </div>
+
+      {/*<div>*/}
+      {/*  {categoryFilters && categoryFilters.length > 0 && (*/}
+      {/*      <div className="bg-white border border-gray-200 rounded p-4 space-y-4">*/}
+
+      {/*        <h3 className="text-sm font-semibold text-gray-900">*/}
+      {/*          Filters*/}
+      {/*        </h3>*/}
+
+      {/*        <div className="flex flex-col gap-4">*/}
+
+      {/*          {categoryFilters.map((filter, index) => {*/}
+      {/*            const type = filter.type.toUpperCase()*/}
+
+      {/*            // SELECT*/}
+      {/*            if (type === 'SELECT') {*/}
+      {/*              const selected = searchParams.get(filter.specKey)*/}
+
+      {/*              return (*/}
+      {/*                  <div key={filter.id} className="space-y-2">*/}
+      {/*                    <p className="text-xs font-semibold text-gray-600 uppercase">*/}
+      {/*                      {filter.label}*/}
+      {/*                    </p>*/}
+
+      {/*                    <div className="flex flex-wrap gap-2">*/}
+      {/*                      {filter.options?.map((opt) => {*/}
+      {/*                        const active = selected === opt*/}
+
+      {/*                        return (*/}
+      {/*                            <button*/}
+      {/*                                key={opt}*/}
+      {/*                                onClick={() => toggleSelect(filter.specKey, opt)}*/}
+      {/*                                className={`px-3 py-1 text-xs rounded border ${*/}
+      {/*                                    active*/}
+      {/*                                        ? 'bg-primary text-white border-primary'*/}
+      {/*                                        : 'bg-gray-100 text-gray-700 border-gray-200'*/}
+      {/*                                }`}*/}
+      {/*                            >*/}
+      {/*                              {opt}*/}
+      {/*                            </button>*/}
+      {/*                        )*/}
+      {/*                      })}*/}
+      {/*                    </div>*/}
+      {/*                  </div>*/}
+      {/*              )*/}
+      {/*            }*/}
+
+      {/*            // MULTI SELECT*/}
+      {/*            if (type === 'MULTI_SELECT') {*/}
+      {/*              const selected = searchParams.getAll(filter.specKey)*/}
+
+      {/*              return (*/}
+      {/*                  <div key={filter.id} className="space-y-2">*/}
+      {/*                    <p className="text-xs font-semibold text-gray-600 uppercase">*/}
+      {/*                      {filter.label}*/}
+      {/*                    </p>*/}
+
+      {/*                    <div className="flex flex-wrap gap-3">*/}
+      {/*                      {filter.options?.map((opt) => {*/}
+      {/*                        const isChecked = selected.includes(opt)*/}
+
+      {/*                        return (*/}
+      {/*                            <label*/}
+      {/*                                key={opt}*/}
+      {/*                                className="flex items-center gap-2 text-sm"*/}
+      {/*                            >*/}
+      {/*                              <input*/}
+      {/*                                  type="checkbox"*/}
+      {/*                                  checked={isChecked}*/}
+      {/*                                  onChange={() =>*/}
+      {/*                                      toggleMulti(filter.specKey, opt)*/}
+      {/*                                  }*/}
+      {/*                              />*/}
+      {/*                              <span>{opt}</span>*/}
+      {/*                            </label>*/}
+      {/*                        )*/}
+      {/*                      })}*/}
+      {/*                    </div>*/}
+      {/*                  </div>*/}
+      {/*              )*/}
+      {/*            }*/}
+
+      {/*            // RANGE*/}
+      {/*            if (type === 'RANGE') {*/}
+      {/*              const minVal = searchParams.get(`${filter.specKey}_min`) || ''*/}
+      {/*              const maxVal = searchParams.get(`${filter.specKey}_max`) || ''*/}
+
+      {/*              return (*/}
+      {/*                  <div key={index} className="space-y-2">*/}
+      {/*                    <p className="text-xs font-semibold text-gray-600 uppercase">*/}
+      {/*                      {filter.label}*/}
+      {/*                    </p>*/}
+
+      {/*                    <div className="flex gap-2 items-center">*/}
+      {/*                      <input*/}
+      {/*                          type="number"*/}
+      {/*                          placeholder={`Min ${filter.unit || ''}`}*/}
+      {/*                          value={minVal}*/}
+      {/*                          onChange={(e) =>*/}
+      {/*                              updateRange(filter.specKey, 'min', e.target.value)*/}
+      {/*                          }*/}
+      {/*                          className="w-full border rounded px-2 py-1 text-sm"*/}
+      {/*                      />*/}
+
+      {/*                      <span className="text-xs text-gray-400">—</span>*/}
+
+      {/*                      <input*/}
+      {/*                          type="number"*/}
+      {/*                          placeholder={`Max ${filter.unit || ''}`}*/}
+      {/*                          value={maxVal}*/}
+      {/*                          onChange={(e) =>*/}
+      {/*                              updateRange(filter.specKey, 'max', e.target.value)*/}
+      {/*                          }*/}
+      {/*                          className="w-full border rounded px-2 py-1 text-sm"*/}
+      {/*                      />*/}
+      {/*                    </div>*/}
+      {/*                  </div>*/}
+      {/*              )*/}
+      {/*            }*/}
+
+      {/*            return null*/}
+      {/*          })}*/}
+      {/*        </div>*/}
+      {/*      </div>*/}
+      {/*  )}*/}
+      {/*</div>*/}
 
       {/* Product Cards Container */}
       {allProducts.length > 0 ? (

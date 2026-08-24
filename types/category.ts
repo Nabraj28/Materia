@@ -1,3 +1,5 @@
+import {Prisma} from "@prisma/client";
+
 export interface GenericFilterOptionItem {
   id?: string;
   value: string;
@@ -15,8 +17,8 @@ export interface Category {
   id?: string;
   slug: string;
   name: string;
-  genericFilters?: GenericFilterItem[];
-  filters?: Filter[];
+  genericFilters: Prisma.JsonValue
+  filters: Prisma.JsonValue
 }
 
 export interface Filter {

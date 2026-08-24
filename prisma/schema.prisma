@@ -10,51 +10,9 @@ model Category {
   id             String    @id @default(uuid())
   slug           String    @unique
   name           String
-  genericFilters GenericFilter[]
-  filters        CategoryFilter[]
+  genericFilters Json?
+  filters        Json?
   products       Product[]
-}
-
-model GenericFilter {
-  id         String   @id @default(uuid())
-  label      String
-  field      String
-  type       FilterType
-
-  categoryId String
-  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-
-  options    GenericFilterOption[]
-
-  @@index([categoryId])
-}
-
-enum FilterType {
-  SELECT
-  MULTI_SELECT
-  RANGE
-  BOOLEAN
-}
-
-model GenericFilterOption {
-  id       String @id @default(uuid())
-  value    String
-
-  filterId String
-  filter   GenericFilter @relation(fields: [filterId], references: [id], onDelete: Cascade)
-}
-
-model CategoryFilter {
-  id         String   @id @default(uuid())
-  label      String
-  specKey    String
-  type       FilterType
-  unit       String?
-
-  categoryId String
-  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-
-  @@index([categoryId])
 }
 
 model Product {

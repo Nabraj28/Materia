@@ -9,16 +9,13 @@ import React, { useState } from "react";
 import { Category } from "@prisma/client";
 import FilterPanel from "@/components/Filter";
 
-import { GenericFilterItem } from "@/types/category";
 
 interface ProductFilterSectionProps {
   categories: Category[];
-  genericFilters?: GenericFilterItem[];
 }
 
 const ProductFilterSection: React.FunctionComponent<ProductFilterSectionProps> =({
   categories,
-  genericFilters,
 })=> {
 
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
@@ -49,7 +46,7 @@ const ProductFilterSection: React.FunctionComponent<ProductFilterSectionProps> =
           <div className="mt-3 pt-3 border-t border-gray-100">
             <FilterPanel
               categories={categories}
-              genericFilters={genericFilters}
+              // genericFilters={genericFilters}
             />
           </div>
         )}
@@ -59,7 +56,7 @@ const ProductFilterSection: React.FunctionComponent<ProductFilterSectionProps> =
       <div className="hidden md:block sticky top-24">
         <FilterPanel
           categories={categories}
-          genericFilters={genericFilters}
+          // genericFilters={genericFilters}
         />
       </div>
     </div>
