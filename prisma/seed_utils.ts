@@ -1,5 +1,31 @@
+import { Category } from '@/types/category';
 import { Product } from '@/types/product';
 import { PrismaClient } from '@prisma/client';
+
+export async function seedCategories(
+  prisma: PrismaClient,
+  categoriesData: Category[],
+): Promise<void> {
+  for (const categoryData of categoriesData) {
+    console.log(`Upserting category ${categoryData.name}...`);
+    await prisma.category.upsert({
+      where: { slug: categoryData.slug },
+      update: {
+        name: categoryData.name,
+        genericFilters: categoryData.genericFilters ?? undefined,
+        filters: categoryData.filters ?? undefined,
+      },
+      create: {
+        id: categoryData.id,
+        slug: categoryData.slug,
+        name: categoryData.name,
+        genericFilters: categoryData.genericFilters ?? undefined,
+        filters: categoryData.filters ?? undefined,
+      },
+    });
+  }
+  console.log('Category seeding complete!');
+}
 
 
 export async function seedProducts(
