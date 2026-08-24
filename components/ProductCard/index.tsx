@@ -59,16 +59,15 @@ export default function ProductCard({
           </div>
 
           {/* Content */}
-          <div className="p-3 sm:p-5 flex flex-col grow justify-start gap-1 sm:gap-2 min-w-0">
-            <span className="font-mono text-xs uppercase text-gray-500 block">
+          <div className="p-2.5 sm:p-5 flex flex-col grow justify-center sm:justify-start gap-0.5 sm:gap-2 min-w-0">
+            <span className="font-mono text-[10px] sm:text-xs uppercase text-gray-500 block">
               {categoryName}
             </span>
-            {/* Fix #9: clamp long product names */}
-            <h3 className="text-lg font-semibold text-gray-900 leading-tight group-hover:text-primary transition-colors line-clamp-2">
+            <h3 className="text-sm sm:text-lg font-semibold text-gray-900 leading-snug sm:leading-tight group-hover:text-primary transition-colors line-clamp-2">
               {product.name}
             </h3>
             {product.description && (
-              <p className="text-sm text-gray-600 line-clamp-2 mt-1">
+              <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 mt-0.5 sm:mt-1">
                 {product.description}
               </p>
             )}
