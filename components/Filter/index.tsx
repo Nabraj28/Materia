@@ -242,7 +242,7 @@ const FilterPanel: React.FunctionComponent<FilterPanelProps> = ({
               const selected = searchParams.getAll(filter.field)
 
               return (
-                  <div key={filter.field} className="space-y-2.5 border-b pb-4">
+                  <div key={filter.field} className="space-y-2.5 border-b border-gray-100 pb-4">
                     <h3 className="text-sm font-semibold text-gray-900">
                       {filter.label}
                     </h3>
@@ -279,7 +279,7 @@ const FilterPanel: React.FunctionComponent<FilterPanelProps> = ({
               const selected = searchParams.get(filter.field)
 
               return (
-                  <div key={filter.field} className="space-y-2.5 border-b pb-4">
+                  <div key={filter.field} className="space-y-2.5 border-b border-gray-100 pb-4">
                     <h3 className="text-sm font-semibold">{filter.label}</h3>
 
                     <div className="grid grid-cols-3 gap-1.5">

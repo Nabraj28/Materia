@@ -4,12 +4,14 @@ import {
   LayoutGrid,
   List,
   Loader2,
-  ArrowUp
+  ArrowUp,
+  SearchX,
+  RotateCcw
 } from "lucide-react";
 import { useState } from "react";
 import { Product } from "@prisma/client";
 import { PaginationData } from "@/types/product";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 import { loadMoreProducts } from "@/app/products/actions";
 
@@ -68,6 +70,16 @@ export default function ProductListSection({
     }
   }
 
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleResetFilters = () => {
+    router.replace(pathname);
+  };
+
+  const searchQuery = searchParams.get("search") || searchParams.get("q");
+  const hasAnyFilterOrSearch = Array.from(searchParams.keys()).length > 0;
+
   return (
     <section className="w-full lg:col-span-9 space-y-4">
       {/* Utilities Bar */}
@@ -122,11 +134,56 @@ export default function ProductListSection({
             />
           ))}
         </div>
+      ) : hasAnyFilterOrSearch ? (
+        /* State 1: Active filters/search returned zero matches */
+        <div className="bg-white border border-gray-200 p-8 sm:p-12 text-center rounded-lg shadow-xs space-y-4">
+          <div className="w-12 h-12 bg-gray-100 text-gray-400 rounded-full flex items-center justify-center mx-auto">
+            <SearchX className="w-6 h-6" aria-hidden="true" />
+          </div>
+          <div className="space-y-1 max-w-sm mx-auto">
+            <h3 className="text-base font-semibold text-gray-900">
+              No matching materials found
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-500">
+              {searchQuery
+                ? `No products match "${searchQuery}". Try checking for spelling errors or adjusting your filter criteria.`
+                : "No products match the selected criteria. Try adjusting or clearing your filters."}
+            </p>
+          </div>
+          <div>
+            <button
+              type="button"
+              onClick={handleResetFilters}
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-semibold rounded transition-colors cursor-pointer"
+            >
+              <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" />
+              <span>Clear All Filters</span>
+            </button>
+          </div>
+        </div>
       ) : (
-        <div className="bg-white border border-dashed border-gray-300 p-8 sm:p-12 text-center rounded">
-          <p className="text-gray-500 text-sm">
-            No materials found for the selected filter.
-          </p>
+        /* State 2: Catalog is completely empty (no products in database yet) */
+        <div className="bg-white border border-gray-200 p-8 sm:p-14 text-center rounded-lg shadow-xs space-y-4">
+          <div className="w-14 h-14 bg-primary-light/40 text-primary rounded-full flex items-center justify-center mx-auto">
+            <SearchX className="w-7 h-7" aria-hidden="true" />
+          </div>
+          <div className="space-y-1.5 max-w-md mx-auto">
+            <h3 className="text-lg font-semibold text-gray-900">
+              Materials catalog is empty
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-500">
+              There are currently no architectural products or materials listed in the catalog. Please check back later or contact the administrator.
+            </p>
+          </div>
+          <div className="pt-1">
+            <button
+              type="button"
+              onClick={() => router.push("/")}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-hover text-white text-xs font-semibold rounded transition-colors cursor-pointer shadow-xs"
+            >
+              <span>Back to Homepage</span>
+            </button>
+          </div>
         </div>
       )}
 

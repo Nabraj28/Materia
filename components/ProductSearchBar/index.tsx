@@ -2,8 +2,8 @@
 
 import { Search, X } from "lucide-react";
 import { useDebounce } from "@/hooks/useDebounce";
-import { useState, useEffect, useCallback, useTransition } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useState, useEffect, useCallback, useRef, useTransition } from "react";
 
 interface ProductSearchBarProps {
   placeholder?: string;
@@ -47,6 +47,16 @@ export default function ProductSearchBar({
       [searchParams, pathname, router, startTransition]
   );
 
+  const handleSearchRef = useRef(handleSearch);
+  useEffect(() => {
+    handleSearchRef.current = handleSearch;
+  }, [handleSearch]);
+
+  const urlSearchRef = useRef(urlSearch);
+  useEffect(() => {
+    urlSearchRef.current = urlSearch;
+  }, [urlSearch]);
+
   const handleClear = () => {
     setSearchQuery("");
     setPrevUrlSearch("");
@@ -56,10 +66,10 @@ export default function ProductSearchBar({
   const debouncedQuery = useDebounce(searchQuery, 400);
 
   useEffect(() => {
-    if (debouncedQuery.trim() !== urlSearch.trim()) {
-      handleSearch(debouncedQuery);
+    if (debouncedQuery.trim() !== urlSearchRef.current.trim()) {
+      handleSearchRef.current(debouncedQuery);
     }
-  }, [debouncedQuery, handleSearch, urlSearch]);
+  }, [debouncedQuery]);
 
   return (
       <div

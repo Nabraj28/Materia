@@ -5,6 +5,7 @@ import { Category, Product } from "@prisma/client";
 import ProductListSection from "@/components/ProductList";
 import ProductSearchBar from "@/components/ProductSearchBar";
 import ProductFilterSection from "@/components/ProductFilter";
+import { FilterSkeleton, ProductListSkeleton } from "@/components/LoadingSkeletons";
 
 export interface ProductsContentProps {
   products: Product[];
@@ -31,8 +32,7 @@ export default function ProductsContent({
         />
         <div className="absolute inset-0 bg-background/70 backdrop-blur-[3px]" />
         <div className="relative z-10 w-full max-w-4xl mx-auto padding-x">
-          {/* ProductSearchBar uses useSearchParams — must be wrapped in Suspense */}
-          <Suspense fallback={<div className="h-16 rounded bg-white/60 animate-pulse" />}>
+          <Suspense fallback={<div className="h-16 rounded bg-white/80 animate-pulse border border-gray-200 shadow-sm" />}>
             <ProductSearchBar />
           </Suspense>
         </div>
@@ -41,14 +41,12 @@ export default function ProductsContent({
       {/* Main Content Layout */}
       <main className="grow container-main padding-y flex flex-col lg:grid lg:grid-cols-12 gap-6 items-start">
         {/* Mobile/Tablet: slide-in filter drawer | Desktop: sidebar filter panel */}
-        {/* FilterPanel uses useSearchParams — must be wrapped in Suspense */}
-        <Suspense fallback={<div className="hidden lg:block lg:col-span-3 h-64 rounded bg-gray-100 animate-pulse" />}>
+        <Suspense fallback={<div className="hidden lg:block lg:col-span-3 w-full"><FilterSkeleton /></div>}>
           <ProductFilterSection categories={categories} />
         </Suspense>
 
         {/* Product Cards Container & Load More */}
-        {/* ProductListSection uses useSearchParams — must be wrapped in Suspense */}
-        <Suspense fallback={<div className="w-full lg:col-span-9 h-96 rounded bg-gray-100 animate-pulse" />}>
+        <Suspense fallback={<ProductListSkeleton />}>
           <ProductListSection
             initialProducts={products}
             pagination={pagination}
