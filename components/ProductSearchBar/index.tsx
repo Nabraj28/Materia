@@ -11,7 +11,7 @@ interface ProductSearchBarProps {
 }
 
 export default function ProductSearchBar({
-  placeholder = "Search technical materials, specs, or SKUs...",
+  placeholder = "e.g. Adhesive, GlassWool Roll, Rockwool Panel...",
   className = "",
 }: ProductSearchBarProps) {
   const router = useRouter();

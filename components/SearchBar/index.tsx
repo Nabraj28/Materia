@@ -12,7 +12,7 @@ interface SearchBarProps {
 }
 
 const SearchBar: React.FunctionComponent<SearchBarProps> = ({
-  placeholder = "e.g. Plasterboard, fire-rated insulation, 12.5mm GK...",
+  placeholder = "e.g. Adhesive, GlassWool Roll, Rockwool Panel...",
   value,
   onChange,
   onSearch,

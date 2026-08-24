@@ -7,3 +7,7 @@ export default function Home() {
     </main>
   );
 }
+
+//TODO: Filter Add
+//TODO: Responsiveness
+//TODO: Images Updated - Neon

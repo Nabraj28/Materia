@@ -49,7 +49,7 @@ const Hero =()=> {
         <div>
           <SearchBar
             onSearch={handleSearch}
-            placeholder="e.g. Plasterboard, fire-rated insulation, 12.5mm GK..."
+            placeholder="e.g. Adhesive, GlassWool Roll, Rockwool Panel..."
           />
         </div>
       </div>
