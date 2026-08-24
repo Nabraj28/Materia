@@ -4,7 +4,6 @@ import { Category, Product } from "@prisma/client";
 import ProductListSection from "@/components/ProductList";
 import ProductSearchBar from "@/components/ProductSearchBar";
 import ProductFilterSection from "@/components/ProductFilter";
-import {SpecFilterItem} from "@/lib/product";
 
 export interface ProductsContentProps {
   products: Product[];
