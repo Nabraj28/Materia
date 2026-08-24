@@ -1,9 +1,9 @@
 "use client";
 
 import { Search, X } from "lucide-react";
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { useState, useEffect, useCallback, useTransition } from "react";
 import { useDebounce } from "@/hooks/useDebounce";
+import { useState, useEffect, useCallback, useTransition } from "react";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 
 interface ProductSearchBarProps {
   placeholder?: string;

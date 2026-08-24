@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import ProductsContent from "./ProductsContent";
 import { getCategories, getCategoryBySlug, getProducts } from "@/lib/product";
 
@@ -20,13 +19,11 @@ export default async function ProductsPage({ searchParams }: PageProps) {
       ]);
 
   return (
-    <Suspense fallback={<div className="flex-1 pt-32 text-center text-gray-500">Loading catalog...</div>}>
       <ProductsContent
         products={products}
         categories={categories}
         activeCategory={activeCategory}
         pagination={pagination}
       />
-    </Suspense>
   );
 }

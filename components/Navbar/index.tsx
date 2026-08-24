@@ -42,24 +42,22 @@ const Navbar =()=> {
     <>
       <header className="sticky top-0 z-40 w-full bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
         <div className="container-main flex justify-between items-center h-16">
-          <div className="flex items-center gap-8">
-            <Link href="/" className="flex items-center">
-              <Index size="lg" />
-            </Link>
+          <Link href="/" className="flex items-center">
+            <Index size="lg" />
+          </Link>
 
-            <nav className="hidden md:flex items-center gap-2" aria-label="Main Navigation">
-              <Link
-                href="/products"
-                className={`px-3 py-1.5 text-sm font-semibold transition-colors ${
-                  isProductsActive
-                    ? "text-primary border-b-2 border-primary"
-                    : "text-gray-600 hover:text-primary"
-                }`}
-              >
-                Products
-              </Link>
-            </nav>
-          </div>
+          <nav className="hidden md:flex items-center gap-2" aria-label="Main Navigation">
+            <Link
+              href="/products"
+              className={`px-3 py-1.5 text-sm font-semibold transition-colors ${
+                isProductsActive
+                  ? "text-primary border-b-2 border-primary"
+                  : "text-gray-600 hover:text-primary"
+              }`}
+            >
+              Products
+            </Link>
+          </nav>
 
           {/* Mobile Menu Hamburger Button */}
           <div className="flex items-center md:hidden">
@@ -83,7 +81,7 @@ const Navbar =()=> {
         aria-modal="true"
         role="dialog"
       >
-        <aside
+        <div
           className={`absolute inset-0 w-full h-full bg-white flex flex-col transform transition-transform duration-300 ease-in-out ${
             mobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
@@ -118,7 +116,7 @@ const Navbar =()=> {
               Products
             </Link>
           </nav>
-        </aside>
+        </div>
       </div>
     </>
   );

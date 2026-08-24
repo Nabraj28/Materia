@@ -7,10 +7,3 @@ export default function Home() {
     </main>
   );
 }
-
-//TODO: Filter Add
-//TODO: Responsiveness
-//TODO: Suspense Fallback
-//TODO: Images Update - Neon
-//TODO: Documentation
-//TODO: Clone Check

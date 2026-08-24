@@ -81,7 +81,7 @@ const SearchBar: React.FunctionComponent<SearchBarProps> = ({
         className="w-full sm:w-auto h-12 px-7 bg-primary hover:bg-primary-hover text-white font-bold transition-colors whitespace-nowrap cursor-pointer rounded shadow-sm text-sm flex items-center justify-center gap-2"
       >
         Find Materials
-        <ArrowRight className="w-4 h-4" />
+        <ArrowRight className="w-4 h-4" aria-hidden="true" />
       </button>
     </form>
   );

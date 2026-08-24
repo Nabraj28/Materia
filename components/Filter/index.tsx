@@ -83,7 +83,6 @@ const FilterPanel: React.FunctionComponent<FilterPanelProps> = ({
     })
   }
 
-  // ✅ SINGLE SELECT CATEGORY LOGIC (checkbox UI but radio behavior)
   function toggleCategory(catSlug: string) {
     updateParams((params) => {
       const current = params.get('category')
@@ -175,14 +174,15 @@ const FilterPanel: React.FunctionComponent<FilterPanelProps> = ({
 
           {/* Categories (SINGLE SELECT) */}
           <div className="space-y-2.5 border-b border-gray-100 pb-4">
-            <h3 className="text-sm font-semibold text-gray-900">Category</h3>
+            <h3 className="text-sm font-semibold text-gray-900">
+              Category
+            </h3>
 
             {categories.length > 0 ? (
                 <div className="space-y-2 pt-0.5">
                   {categories.map((cat) => {
                     const slug = cat.slug || cat.name.toLowerCase()
 
-                    // ✅ ONLY ONE active category
                     const isChecked = selectedCategory === slug
 
                     const count =
@@ -243,7 +243,9 @@ const FilterPanel: React.FunctionComponent<FilterPanelProps> = ({
 
               return (
                   <div key={filter.field} className="space-y-2.5 border-b pb-4">
-                    <h3 className="text-sm font-semibold">{filter.label}</h3>
+                    <h3 className="text-sm font-semibold text-gray-900">
+                      {filter.label}
+                    </h3>
 
                     {options.map((opt) => {
                       const isChecked = selected.includes(opt)
@@ -257,7 +259,15 @@ const FilterPanel: React.FunctionComponent<FilterPanelProps> = ({
                                     toggleMultiSelect(filter.field, opt)
                                 }
                             />
-                            <span>{opt}</span>
+                            <span
+                                className={
+                                  isChecked
+                                      ? 'text-gray-900 font-medium'
+                                      : 'text-gray-600 group-hover:text-gray-900'
+                                }
+                            >
+                              {opt}
+                            </span>
                           </label>
                       )
                     })}
@@ -282,8 +292,8 @@ const FilterPanel: React.FunctionComponent<FilterPanelProps> = ({
                                 onClick={() => toggleSelect(filter.field, opt)}
                                 className={
                                   active
-                                      ? 'bg-primary text-white px-2 py-1 rounded'
-                                      : 'bg-gray-100 px-2 py-1 rounded'
+                                      ? 'bg-primary text-white px-2 py-1 rounded text-sm'
+                                      : 'bg-gray-100 text-gray-900 px-2 py-1 rounded text-sm'
                                 }
                             >
                               {opt}

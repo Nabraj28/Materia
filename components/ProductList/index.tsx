@@ -69,7 +69,7 @@ export default function ProductListSection({
   }
 
   return (
-    <section className="w-full md:col-span-9 space-y-4">
+    <section className="w-full lg:col-span-9 space-y-4">
       {/* Utilities Bar */}
       <div className="bg-white p-3 border border-gray-200 rounded flex items-center justify-between shadow-xs">
         <span className="text-xs sm:text-sm text-gray-600 font-medium">
@@ -88,7 +88,7 @@ export default function ProductListSection({
                 : "text-gray-500 hover:text-gray-900 hover:bg-gray-100"
             }`}
           >
-            <LayoutGrid className="w-4 h-4" />
+            <LayoutGrid className="w-4 h-4" aria-hidden="true" />
           </button>
           <button
             type="button"
@@ -100,7 +100,7 @@ export default function ProductListSection({
                 : "text-gray-500 hover:text-gray-900 hover:bg-gray-100"
             }`}
           >
-            <List className="w-4 h-4" />
+            <List className="w-4 h-4" aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -143,7 +143,7 @@ export default function ProductListSection({
               {loadingMore ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin text-primary" />
-                  Loading more...
+                  Loading more…
                 </>
               ) : (
                 <>Load More Materials</>
@@ -155,7 +155,7 @@ export default function ProductListSection({
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="w-full sm:w-auto px-6 py-2.5 bg-white border border-gray-300 hover:border-primary text-gray-800 hover:text-primary text-sm font-semibold rounded shadow-xs transition-colors cursor-pointer flex items-center justify-center gap-2"
             >
-              <ArrowUp className="w-4 h-4 text-primary" />
+              <ArrowUp className="w-4 h-4 text-primary" aria-hidden="true" />
               Back to Top
             </button>
           )}

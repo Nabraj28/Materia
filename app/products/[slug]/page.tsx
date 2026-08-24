@@ -59,7 +59,7 @@ const ProductDetailPage: React.FunctionComponent<PageProps> = async({ params })=
                       className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 border border-gray-200 text-gray-600 font-mono text-[11px] uppercase tracking-wide rounded"
                     >
                       {tag.toLowerCase().includes("leed") || tag.toLowerCase().includes("recyc") ? (
-                        <Leaf className="w-3 h-3 text-green-600" />
+                        <Leaf className="w-3 h-3 text-green-600" aria-hidden="true" />
                       ) : null}
                       {tag}
                     </span>
@@ -69,7 +69,7 @@ const ProductDetailPage: React.FunctionComponent<PageProps> = async({ params })=
 
               {(product.brand || manufacturer?.name) && (
                 <span className="font-mono text-xs uppercase tracking-wider text-gray-500 flex items-center gap-1.5 mb-1">
-                  <Building2 className="w-3.5 h-3.5 text-gray-400" />
+                  <Building2 className="w-3.5 h-3.5 text-gray-400" aria-hidden="true" />
                   {product.brand || manufacturer?.name}
                 </span>
               )}
