@@ -46,16 +46,17 @@ export default function ProductListSection({
       const pageSize = initialPagination?.pageSize || 6;
       const nextPage = 1 + Math.floor(allProducts.length / pageSize);
 
-      const categoriesParam = searchParams.getAll("category");
-      const searchParam =
-        searchParams.get("search") || searchParams.get("q") || undefined;
-
-      const res = await loadMoreProducts({
-        category: categoriesParam.length > 0 ? categoriesParam : undefined,
-        search: searchParam,
+      const queryParams: Record<string, string | string[] | number | undefined> = {
         page: nextPage,
         pageSize,
+      };
+
+      searchParams.forEach((_, key) => {
+        const allVals = searchParams.getAll(key);
+        queryParams[key] = allVals.length > 1 ? allVals : allVals[0];
       });
+
+      const res = await loadMoreProducts(queryParams);
 
       setExtraProducts((prev) => [...prev, ...res.products]);
     } catch (err) {

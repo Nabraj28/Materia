@@ -2,56 +2,110 @@
 
 import React, { useTransition } from 'react'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
-import type { Category } from '@/types/category'
+import type { Category, GenericFilterItem } from '@/types/category'
 
 export interface FilterPanelProps {
   categories?: (Category | { id?: string; slug: string; name: string })[]
+  genericFilters?: GenericFilterItem[]
   mobileFilterOpen?: boolean
   categoryCounts?: Record<string, number>
   className?: string
 }
 
-export function FilterPanel({
+const FilterPanel: React.FunctionComponent<FilterPanelProps> = ({
   categories = [],
+  genericFilters = [],
   mobileFilterOpen,
   categoryCounts = {},
   className = '',
-}: FilterPanelProps) {
-  const router = useRouter()
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-  const [, startTransition] = useTransition()
+})=> {
 
-  const selectedCategories = searchParams.getAll('category')
+  const router = useRouter();
+
+  const pathname = usePathname();
+
+  const searchParams = useSearchParams();
+
+  const [, startTransition] = useTransition();
+
+  const selectedCategories = searchParams.getAll('category');
+
+  const hasActiveCategoryFilters = selectedCategories.length > 0
+  const hasActiveGenericFilters = genericFilters.some((f) => {
+    const isBool = f.type.toUpperCase() === 'BOOLEAN'
+    const isMulti = f.type.toUpperCase() === 'MULTI_SELECT'
+    if (isBool) {
+      return searchParams.get(f.field) === 'true'
+    }
+    if (isMulti) {
+      return searchParams.getAll(f.field).length > 0
+    }
+    return Boolean(searchParams.get(f.field))
+  })
+
+  const hasActiveFilters = hasActiveCategoryFilters || hasActiveGenericFilters;
+
+  function updateParams(modifier: (params: URLSearchParams) => void) {
+    const params = new URLSearchParams(searchParams.toString())
+    modifier(params)
+    params.delete('page')
+    const queryString = params.toString()
+    startTransition(() => {
+      router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false })
+    })
+  }
 
   function toggleCategory(catSlug: string) {
-    const params = new URLSearchParams(searchParams.toString())
-    const current = params.getAll('category')
-    params.delete('category')
-    params.delete('page')
+    updateParams((params) => {
+      const current = params.getAll('category')
+      params.delete('category')
+      const next = current.includes(catSlug)
+        ? current.filter((s) => s !== catSlug)
+        : [...current, catSlug]
+      next.forEach((s) => params.append('category', s))
+    })
+  }
 
-    const next = current.includes(catSlug)
-      ? current.filter((s) => s !== catSlug)
-      : [...current, catSlug]
+  function toggleMultiSelect(field: string, val: string) {
+    updateParams((params) => {
+      const current = params.getAll(field)
+      params.delete(field)
+      const next = current.includes(val)
+        ? current.filter((s) => s !== val)
+        : [...current, val]
+      next.forEach((s) => params.append(field, s))
+    })
+  }
 
-    next.forEach((s) => params.append('category', s))
+  function toggleSelect(field: string, val: string) {
+    updateParams((params) => {
+      if (params.get(field) === val) {
+        params.delete(field)
+      } else {
+        params.set(field, val)
+      }
+    })
+  }
 
-    startTransition(() => {
-      router.push(`${pathname}?${params.toString()}`, { scroll: false })
+  function toggleBoolean(field: string) {
+    updateParams((params) => {
+      if (params.get(field) === 'true') {
+        params.delete(field)
+      } else {
+        params.set(field, 'true')
+      }
     })
   }
 
   function clearFilters() {
-    const params = new URLSearchParams(searchParams.toString())
-    params.delete('category')
-    params.delete('page')
-    startTransition(() => {
-      const queryString = params.toString()
-      router.push(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false })
+    updateParams((params) => {
+      params.delete('category')
+      genericFilters.forEach((f) => params.delete(f.field))
     })
   }
 
-  const hasSelectedCategories = selectedCategories.length > 0
+  const nonBooleanFilters = genericFilters.filter((f) => f.type.toUpperCase() !== 'BOOLEAN')
+  const booleanFilters = genericFilters.filter((f) => f.type.toUpperCase() === 'BOOLEAN')
 
   return (
     <aside
@@ -59,29 +113,29 @@ export function FilterPanel({
         mobileFilterOpen !== undefined ? (mobileFilterOpen ? 'block' : 'hidden') : 'block'
       } md:block space-y-6 ${className}`}
     >
-      <div className="bg-white p-4 border border-gray-200 rounded space-y-4 shadow-xs">
+      <div className="bg-white p-4 sm:p-5 border border-gray-200 rounded space-y-5 shadow-xs">
         {/* Header */}
-        <div className="flex justify-between items-center border-b border-gray-200 pb-2">
+        <div className="flex justify-between items-center border-b border-gray-200 pb-3">
           <h2 className="font-mono text-xs uppercase tracking-wider text-gray-500 font-semibold">
             Filters
           </h2>
-          {hasSelectedCategories && (
+          {hasActiveFilters && (
             <button
               type="button"
               onClick={clearFilters}
               className="font-mono text-xs text-primary hover:underline cursor-pointer font-medium"
             >
-              Reset
+              Reset All
             </button>
           )}
         </div>
 
         {/* Category Filter Section */}
-        <div className="space-y-2">
+        <div className="space-y-2.5 border-b border-gray-100 pb-4">
           <h3 className="text-sm font-semibold text-gray-900">Category</h3>
           
           {categories.length > 0 ? (
-            <div className="space-y-2 pt-1">
+            <div className="space-y-2 pt-0.5">
               {categories.map((cat) => {
                 const slug = cat.slug || cat.name.toLowerCase()
                 const isChecked = selectedCategories.includes(slug)
@@ -127,6 +181,114 @@ export function FilterPanel({
             </p>
           )}
         </div>
+
+        {/* Dynamic Non-Boolean Generic Filters (MULTI_SELECT, SELECT, RANGE) */}
+        {nonBooleanFilters.map((filter) => {
+          const typeUpper = filter.type.toUpperCase()
+          const options = (filter.options || []).map((o) =>
+            typeof o === 'string' ? o : o.value
+          )
+
+          if (typeUpper === 'MULTI_SELECT') {
+            const selectedValues = searchParams.getAll(filter.field)
+            return (
+              <div key={filter.id || filter.field} className="space-y-2.5 border-b border-gray-100 pb-4">
+                <h3 className="text-sm font-semibold text-gray-900">{filter.label}</h3>
+                <div className="space-y-2 pt-0.5">
+                  {options.map((opt) => {
+                    const isChecked = selectedValues.includes(opt)
+                    return (
+                      <label
+                        key={opt}
+                        className="flex items-center gap-2 cursor-pointer group select-none text-sm"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={() => toggleMultiSelect(filter.field, opt)}
+                          className="h-4 w-4 text-primary accent-primary border-gray-300 rounded focus:ring-primary cursor-pointer"
+                        />
+                        <span
+                          className={`transition-colors ${
+                            isChecked
+                              ? 'text-gray-900 font-medium'
+                              : 'text-gray-600 group-hover:text-gray-900'
+                          }`}
+                        >
+                          {opt}
+                        </span>
+                      </label>
+                    )
+                  })}
+                </div>
+              </div>
+            )
+          }
+
+          if (typeUpper === 'SELECT') {
+            const selectedValue = searchParams.get(filter.field) || ''
+            return (
+              <div key={filter.id || filter.field} className="space-y-2.5 border-b border-gray-100 pb-4">
+                <h3 className="text-sm font-semibold text-gray-900">{filter.label}</h3>
+                <div className="grid grid-cols-3 gap-1.5 pt-0.5">
+                  {options.map((opt) => {
+                    const isSelected = selectedValue === opt
+                    return (
+                      <button
+                        key={opt}
+                        type="button"
+                        onClick={() => toggleSelect(filter.field, opt)}
+                        className={`py-1.5 px-2 text-xs font-semibold rounded border transition-colors cursor-pointer text-center ${
+                          isSelected
+                            ? 'bg-primary text-white border-primary shadow-xs'
+                            : 'bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-300 hover:bg-gray-100'
+                        }`}
+                      >
+                        {opt}
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+            )
+          }
+
+          return null
+        })}
+
+        {/* Dynamic Boolean Generic Filters */}
+        {booleanFilters.length > 0 && (
+          <div className="space-y-2.5">
+            <h3 className="text-sm font-semibold text-gray-900">Properties</h3>
+            <div className="space-y-2 pt-0.5">
+              {booleanFilters.map((filter) => {
+                const isChecked = searchParams.get(filter.field) === 'true'
+                return (
+                  <label
+                    key={filter.id || filter.field}
+                    className="flex items-center gap-2 cursor-pointer group select-none text-sm"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={isChecked}
+                      onChange={() => toggleBoolean(filter.field)}
+                      className="h-4 w-4 text-primary accent-primary border-gray-300 rounded focus:ring-primary cursor-pointer"
+                    />
+                    <span
+                      className={`transition-colors ${
+                        isChecked
+                          ? 'text-gray-900 font-medium'
+                          : 'text-gray-600 group-hover:text-gray-900'
+                      }`}
+                    >
+                      {filter.label}
+                    </span>
+                  </label>
+                )
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </aside>
   )

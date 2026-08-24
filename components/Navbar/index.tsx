@@ -89,7 +89,7 @@ const Navbar =()=> {
           }`}
         >
           <div className="h-16 px-4 flex items-center justify-between border-b border-gray-200">
-            <Link href="/public" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/" onClick={() => setMobileMenuOpen(false)}>
               <Index size="lg" />
             </Link>
             <button

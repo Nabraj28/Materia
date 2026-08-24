@@ -10,4 +10,7 @@ export default function Home() {
 
 //TODO: Filter Add
 //TODO: Responsiveness
-//TODO: Images Updated - Neon
+//TODO: Suspense Fallback
+//TODO: Images Update - Neon
+//TODO: Documentation
+//TODO: Clone Check

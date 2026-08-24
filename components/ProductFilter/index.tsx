@@ -5,22 +5,21 @@ import {
   ChevronDown,
   ChevronUp
 } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Category } from "@prisma/client";
 import FilterPanel from "@/components/Filter";
-import { useSearchParams } from "next/navigation";
+
+import { GenericFilterItem } from "@/types/category";
 
 interface ProductFilterSectionProps {
   categories: Category[];
+  genericFilters?: GenericFilterItem[];
 }
 
 const ProductFilterSection: React.FunctionComponent<ProductFilterSectionProps> =({
   categories,
+  genericFilters,
 })=> {
-
-  const searchParams = useSearchParams();
-  const selectedCategories = searchParams.getAll("category");
-  const hasActiveFilters = selectedCategories.length > 0;
 
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
@@ -37,11 +36,6 @@ const ProductFilterSection: React.FunctionComponent<ProductFilterSectionProps> =
           <div className="flex items-center gap-2">
             <Filter className="w-4 h-4 text-primary" />
             <span>Filters</span>
-            {hasActiveFilters && (
-              <span className="bg-primary/10 text-primary font-mono text-xs px-2 py-0.5 rounded-full font-bold">
-                {selectedCategories.length}
-              </span>
-            )}
           </div>
           {mobileFilterOpen ? (
             <ChevronUp className="w-4 h-4 text-gray-500" />
@@ -53,14 +47,20 @@ const ProductFilterSection: React.FunctionComponent<ProductFilterSectionProps> =
         {/* Collapsible content for mobile */}
         {mobileFilterOpen && (
           <div className="mt-3 pt-3 border-t border-gray-100">
-            <FilterPanel categories={categories} />
+            <FilterPanel
+              categories={categories}
+              genericFilters={genericFilters}
+            />
           </div>
         )}
       </div>
 
       {/* Desktop Sidebar Filter Panel */}
       <div className="hidden md:block sticky top-24">
-        <FilterPanel categories={categories} />
+        <FilterPanel
+          categories={categories}
+          genericFilters={genericFilters}
+        />
       </div>
     </div>
   );

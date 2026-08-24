@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import ProductsContent from "./ProductsContent";
-import { getCategories, getCategoryBySlug, getProducts } from "@/lib/product";
+import { getCategories, getCategoryBySlug, getGenericFilters, getProducts } from "@/lib/product";
 
 interface PageProps {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -9,10 +9,11 @@ interface PageProps {
 export default async function ProductsPage({ searchParams }: PageProps) {
   const params = await searchParams;
 
-  const [{ products, pagination }, categories, activeCategory] = await Promise.all([
+  const [{ products, pagination }, categories, activeCategory, genericFilters] = await Promise.all([
     getProducts(params),
     getCategories(),
     typeof params.category === "string" ? getCategoryBySlug(params.category) : null,
+    getGenericFilters(typeof params.category === "string" ? params.category : undefined),
   ]);
 
   return (
@@ -21,6 +22,7 @@ export default async function ProductsPage({ searchParams }: PageProps) {
         products={products}
         categories={categories}
         activeCategory={activeCategory}
+        genericFilters={genericFilters}
         pagination={pagination}
       />
     </Suspense>

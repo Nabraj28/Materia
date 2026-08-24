@@ -5,10 +5,10 @@ import {
 } from "lucide-react";
 import React from "react";
 import { notFound } from "next/navigation";
+import DataTable from "@/components/DataTable";
 import { getProductBySlug } from "@/lib/product";
 import ProductGallery from "@/components/ProductGallery";
 import ProductActions from "@/components/ProductActions";
-import DataTable from "@/components/DataTable";
 
 interface PageProps {
   params: Promise<{ slug: string }>;

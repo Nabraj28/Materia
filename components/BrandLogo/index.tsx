@@ -1,9 +1,11 @@
+import React from "react";
+
 interface BrandLogoProps {
   size?: "md" | "lg";
   className?: string;
 }
 
-export default function Index({ size = "md", className = "" }: BrandLogoProps) {
+const BrandLogo: React.FunctionComponent<BrandLogoProps> =({ size = "md", className = "" })=> {
   const textSize = size === "lg" ? "text-2xl" : "text-xl sm:text-2xl";
 
   return (
@@ -13,4 +15,6 @@ export default function Index({ size = "md", className = "" }: BrandLogoProps) {
       Materia
     </span>
   );
-}
+};
+
+export default BrandLogo;
