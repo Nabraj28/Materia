@@ -4,14 +4,18 @@ import type { Prisma } from '@prisma/client'
 export interface ProductSearchParams {
     category?: string | string[]
     search?: string
+    q?: string
     scope?: string | string[]
     durability?: string
+    fireClass?: string
+    waterResistance?: string
     ceMarked?: string
     frostResistant?: string
+    vaporPermeable?: string
     recyclable?: string
     page?: string | number
     pageSize?: string | number
-    [specKey: string]: string | string[] | number | undefined
+    [key: string]: string | string[] | number | undefined
 }
 
 export interface SpecFilterItem {
@@ -66,8 +70,11 @@ export async function getProducts(params: ProductSearchParams) {
 
     const propertiesWhere: Prisma.PropertiesWhereInput = {}
     if (params.durability) propertiesWhere.durability = params.durability
+    if (params.fireClass) propertiesWhere.fireClass = params.fireClass
+    if (params.waterResistance) propertiesWhere.waterResistance = params.waterResistance
     if (params.ceMarked !== undefined) propertiesWhere.ceMarked = params.ceMarked === 'true'
     if (params.frostResistant !== undefined) propertiesWhere.frostResistant = params.frostResistant === 'true'
+    if (params.vaporPermeable !== undefined) propertiesWhere.vaporPermeable = params.vaporPermeable === 'true'
     if (params.recyclable !== undefined) propertiesWhere.recyclable = params.recyclable === 'true'
     if (Object.keys(propertiesWhere).length > 0) {
         where.properties = propertiesWhere

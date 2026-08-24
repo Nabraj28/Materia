@@ -10,8 +10,6 @@ model Category {
   id             String    @id @default(uuid())
   slug           String    @unique
   name           String
-  genericFilters Json?
-  filters        Json?
   products       Product[]
 }
 
