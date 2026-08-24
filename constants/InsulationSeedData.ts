@@ -20,7 +20,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "Lightweight glass mineral wool roll for attic and loft insulation, offering high thermal performance with easy hand-cutting for tight spaces between joists.",
         "images": [
-            "https://images.unsplash.com/photo-1622821677134-2b52a9de5b6c?w=800"
+            "https://images.unsplash.com/photo-1622188758548-ec29998c883f?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -145,7 +145,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "Standard-density glass wool roll balancing thermal resistance and cost for wall cavities and roof applications across residential and light commercial projects.",
         "images": [
-            "https://images.unsplash.com/photo-1622821677134-2b52a9de5b6c?w=800"
+            "https://images.unsplash.com/photo-1622188758548-ec29998c883f?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -229,7 +229,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "Semi-rigid glass wool slab designed for facade cavity walls and ventilated rainscreen systems, offering dimensional stability under wind load.",
         "images": [
-            "https://images.unsplash.com/photo-1590274853856-f22d5eeafcbf?w=800"
+            "https://images.unsplash.com/photo-1622188758548-ec29998c883f?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -313,7 +313,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "High-density stone wool slab engineered for ETICS and ventilated facade systems, combining non-combustible fire protection with strong dimensional stability.",
         "images": [
-            "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"
+            "https://images.unsplash.com/photo-1672678312917-82813f9e0a20?q=80&w=800&h=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -402,7 +402,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "Rigid stone wool board for flat roof build-ups, resistant to foot traffic during installation and stable under long-term compressive load.",
         "images": [
-            "https://images.unsplash.com/photo-1590274853856-f22d5eeafcbf?w=800"
+            "https://images.unsplash.com/photo-1657897337159-bc9ab8f3a306?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -480,7 +480,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "Preformed stone wool pipe insulation sections for HVAC and plumbing runs, limiting heat loss and providing passive fire protection around service penetrations.",
         "images": [
-            "https://images.unsplash.com/photo-1622821677134-2b52a9de5b6c?w=800"
+            "https://images.unsplash.com/photo-1659878457833-c3ad1ebf6031?q=80&w=1178&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -584,7 +584,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "High-performance PIR rigid foam board with glass-tissue facing, delivering low thermal conductivity for slim flat and pitched roof build-ups.",
         "images": [
-            "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800"
+            "https://images.unsplash.com/photo-1713990969985-473c5de96722?q=80&w=1188&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -670,7 +670,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "PIR insulation board for masonry cavity walls and internal wall lining, offering strong thermal performance without excessive wall thickness.",
         "images": [
-            "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800"
+            "https://images.unsplash.com/photo-1667892702927-9d4d44b7eb05?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -747,7 +747,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "High-compressive-strength PUR board designed for ground floor slabs and underfloor heating build-ups, resisting long-term load without settling.",
         "images": [
-            "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800"
+            "https://images.unsplash.com/photo-1737065160136-ef379de6d71d?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -824,7 +824,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "Expanded polystyrene board for ETICS render facade systems, offering reliable thermal performance at low weight for straightforward on-site handling.",
         "images": [
-            "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"
+            "https://images.unsplash.com/photo-1642077912546-6b0c3e713ef9?q=80&w=800&h=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -901,7 +901,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "High-density EPS board for foundation perimeter and under-slab insulation, rated for continuous ground contact and sustained compressive load.",
         "images": [
-            "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800"
+            "https://images.unsplash.com/photo-1642077912546-6b0c3e713ef9?q=80&w=800&h=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -980,7 +980,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "Extruded polystyrene board with closed-cell structure for below-grade and perimeter applications, engineered for near-zero long-term water absorption.",
         "images": [
-            "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800"
+            "https://images.unsplash.com/photo-1643061671990-671fb274078d?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -1058,7 +1058,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "Renewable wood fiber board for ventilated facades, combining thermal mass with high vapor permeability for breathable timber-frame construction.",
         "images": [
-            "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"
+            "https://images.unsplash.com/photo-1643061671990-671fb274078d?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -1142,7 +1142,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "Flexible wood fiber batt for timber stud walls and roof rafters, providing natural moisture buffering and strong acoustic damping between rooms.",
         "images": [
-            "https://images.unsplash.com/photo-1622821677134-2b52a9de5b6c?w=800"
+            "https://images.unsplash.com/photo-1719757166519-28b71469ab92?q=80&w=800&h=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -1220,7 +1220,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "Rigid cellular glass board that is fully water- and vapor-impermeable, ideal for foundation and below-grade applications where moisture exposure is constant.",
         "images": [
-            "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800"
+            "https://images.unsplash.com/photo-1642077912546-6b0c3e713ef9?q=80&w=800&h=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -1307,7 +1307,7 @@ export const InsulationSeedData: Product[] = [
         "category": "Insulation",
         "description": "Semi-rigid stone wool batt optimized for internal partitions and floor/ceiling assemblies, reducing airborne sound transmission between rooms and units.",
         "images": [
-            "https://images.unsplash.com/photo-1590274853856-f22d5eeafcbf?w=800"
+            "https://images.unsplash.com/photo-1719757166519-28b71469ab92?q=80&w=800&h=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {

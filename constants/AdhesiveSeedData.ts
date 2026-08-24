@@ -18,7 +18,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Improved cementitious adhesive with extended open time for ceramic and porcelain tile fixing on floors and walls in dry and wet interior areas.",
         "images": [
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"
+            "https://images.unsplash.com/photo-1621719455668-fba909ae1b58?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -102,7 +102,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Deformable, polymer-modified tile adhesive for large-format tiles on substrates subject to movement, including underfloor heating and balconies.",
         "images": [
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"
+            "https://images.unsplash.com/photo-1693592772086-e80960b134ed?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -180,7 +180,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Fast-setting, fast-track cementitious adhesive that allows foot traffic and grouting after just a few hours, suited to renovation projects on tight schedules.",
         "images": [
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"
+            "https://images.unsplash.com/photo-1536786724684-63545518d243?q=80&w=800&h=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -256,7 +256,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Two-component epoxy resin adhesive for chemically resistant tile fixing in industrial kitchens, laboratories, and areas exposed to aggressive substances.",
         "images": [
-            "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800"
+            "https://images.unsplash.com/photo-1689494949243-1a0bae0077c1?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -334,7 +334,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "High-strength one-component polyurethane adhesive for bonding insulation boards, cladding panels, and structural building elements without mechanical fixings.",
         "images": [
-            "https://images.unsplash.com/photo-1620912189876-058e4a5f4a5c?w=800"
+            "https://images.unsplash.com/photo-1680940429127-a4b0944e8584?q=80&w=1122&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -411,7 +411,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Elastic silane-modified polymer adhesive for full-surface bonding of solid and engineered wood flooring, absorbing subfloor movement without cracking.",
         "images": [
-            "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800"
+            "https://images.unsplash.com/photo-1680940429127-a4b0944e8584?q=80&w=1122&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -486,7 +486,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Weatherproof neutral-cure silicone sealant for expansion joints and perimeter sealing around windows and doors, safe on sensitive substrates like natural stone.",
         "images": [
-            "https://images.unsplash.com/photo-1620912189876-058e4a5f4a5c?w=800"
+            "https://images.unsplash.com/photo-1654115349242-2f1b777084dc?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -563,7 +563,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Fast-curing acetoxy silicone sealant with fungicidal protection for kitchen and bathroom sanitary joints, resisting mould growth in humid environments.",
         "images": [
-            "https://images.unsplash.com/photo-1620912189876-058e4a5f4a5c?w=800"
+            "https://images.unsplash.com/photo-1536786724684-63545518d243?q=80&w=800&h=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -640,7 +640,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Paintable, UV-stable hybrid polymer sealant combining adhesive strength with elastic sealing performance for roof detailing and multi-material facade joints.",
         "images": [
-            "https://images.unsplash.com/photo-1620912189876-058e4a5f4a5c?w=800"
+            "https://images.unsplash.com/photo-1732887975710-6ab16d1fbc3a?q=80&w=800&h=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -718,7 +718,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Intumescent acrylic sealant for fire-stopping linear gaps and service penetrations in fire-rated partitions, maintaining compartmentation up to 4 hours.",
         "images": [
-            "https://images.unsplash.com/photo-1620912189876-058e4a5f4a5c?w=800"
+            "https://images.unsplash.com/photo-1614162063681-1adc832305b1?q=80&w=800&h=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -793,7 +793,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Self-levelling polyurethane sealant for horizontal expansion joints in concrete floors and pavements, resisting traffic wear and freeze-thaw cycling.",
         "images": [
-            "https://images.unsplash.com/photo-1620912189876-058e4a5f4a5c?w=800"
+            "https://images.unsplash.com/photo-1614162063681-1adc832305b1?q=80&w=800&h=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -870,7 +870,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Non-curing butyl rubber sealant tape for flashing laps and membrane seams on flat and pitched roofs, remaining permanently flexible under thermal cycling.",
         "images": [
-            "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800"
+            "https://images.unsplash.com/photo-1663433544054-63c0cff195c6?q=80&w=800&h=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -943,7 +943,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Bitumen-modified adhesive for bonding waterproofing membranes to concrete substrates in foundations, wet rooms, and inverted roof systems.",
         "images": [
-            "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800"
+            "https://images.unsplash.com/photo-1732887975710-6ab16d1fbc3a?q=80&w=800&h=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -1016,7 +1016,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Low-expansion one-component polyurethane spray foam for bonding and gap-filling around window frames, service penetrations, and roof void detailing.",
         "images": [
-            "https://images.unsplash.com/photo-1620912189876-058e4a5f4a5c?w=800"
+            "https://images.unsplash.com/photo-1683959553163-effca29b546e?q=80&w=1278&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -1086,7 +1086,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Liquid polymer additive mixed into cementitious grout to increase flexibility, water resistance, and stain resistance in wet-area tile joints.",
         "images": [
-            "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800"
+            "https://images.unsplash.com/photo-1654115349242-2f1b777084dc?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
@@ -1156,7 +1156,7 @@ export const AdhesiveSeedData: Product[] = [
         "category": "Adhesives & Sealants",
         "description": "Solvent-based contact adhesive for instant-bond lamination of worktops, laminate sheets, and rubber or cork flooring to a range of rigid substrates.",
         "images": [
-            "https://images.unsplash.com/photo-1620912189876-058e4a5f4a5c?w=800"
+            "https://images.unsplash.com/photo-1680940429127-a4b0944e8584?q=80&w=1122&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         "specifications": [
             {
