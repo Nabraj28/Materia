@@ -44,12 +44,12 @@ const ProductDetailPage: React.FunctionComponent<PageProps> = async({ params })=
   return (
     <main className="flex-1 container-main padding-y">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-          {/* Left: Image Gallery */}
-          <ProductGallery images={product.images || []} name={product.name} />
-
+          <ProductGallery
+              images={product.images || []}
+              name={product.name}
+          />
           {/* Right: Product Details */}
           <div className="space-y-6">
-            {/* Tags, Brand & Title */}
             <div>
               {scope.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-3">
@@ -110,14 +110,11 @@ const ProductDetailPage: React.FunctionComponent<PageProps> = async({ params })=
           </div>
         </div>
 
-        {/* ── Below-the-fold Specifications & Information ── */}
         <div className="space-y-10 mt-12">
-          {/* Specifications Groups */}
           {specifications?.map((group) => (
               <DataTable key={group.id} group={group} />
           ))}
 
-          {/* Product Variants Table */}
           {variants?.map((group) => (
               <DataTable key={group.id} group={group} />
           ))}

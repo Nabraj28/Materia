@@ -1,6 +1,7 @@
 import { FilterSkeleton, ProductListSkeleton } from "@/components/LoadingSkeletons";
 
-export default function ProductsLoading() {
+const ProductsLoading =()=> {
+    
   return (
     <div className="grow flex flex-col">
       {/* Banner Skeleton */}
@@ -19,4 +20,6 @@ export default function ProductsLoading() {
       </main>
     </div>
   );
-}
+};
+
+export default ProductsLoading;

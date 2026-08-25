@@ -1,4 +1,6 @@
-export default function ProductDetailLoading() {
+import React from "react";
+
+const ProductDetailLoading: React.FunctionComponent =()=> {
   return (
     <main className="flex-1 container-main padding-y animate-pulse">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
@@ -38,3 +40,5 @@ export default function ProductDetailLoading() {
     </main>
   );
 }
+
+export default ProductDetailLoading;

@@ -36,7 +36,9 @@ const ProductFilterSection: React.FunctionComponent<ProductFilterSectionProps> =
           className="flex items-center gap-2 bg-primary text-white px-4 py-2.5 rounded-full shadow-lg text-sm font-semibold hover:bg-primary/90 transition-colors cursor-pointer"
         >
           <Filter className="w-4 h-4" />
-          <span>Filters</span>
+          <span>
+            Filters
+          </span>
         </button>
       </div>
 
@@ -62,7 +64,9 @@ const ProductFilterSection: React.FunctionComponent<ProductFilterSectionProps> =
         <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 shrink-0">
           <div className="flex items-center gap-2">
             <Filter className="w-4 h-4 text-primary" />
-            <span className="font-semibold text-gray-900 text-sm">Filters</span>
+            <span className="font-semibold text-gray-900 text-sm">
+              Filters
+            </span>
           </div>
           <button
             type="button"

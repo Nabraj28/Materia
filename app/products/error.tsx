@@ -1,19 +1,14 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
-import { useEffect } from "react";
 import { AlertCircle, RefreshCw, ArrowLeft } from "lucide-react";
 
-export default function ProductsError({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
+type ProductErrorProps = {
   reset: () => void;
-}) {
-  useEffect(() => {
-    console.error("Products Segment Error:", error);
-  }, [error]);
+};
+
+const ProductError: React.FunctionComponent<ProductErrorProps> = ({ reset }) => {
 
   return (
     <main className="flex-1 flex items-center justify-center container-main padding-y min-h-[50vh]">
@@ -55,3 +50,5 @@ export default function ProductsError({
     </main>
   );
 }
+
+export default ProductError;

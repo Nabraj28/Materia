@@ -3,17 +3,17 @@
 import { Search, X } from "lucide-react";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { useState, useEffect, useCallback, useRef, useTransition } from "react";
+import React, { useState, useEffect, useCallback, useRef, useTransition } from "react";
 
 interface ProductSearchBarProps {
   placeholder?: string;
   className?: string;
 }
 
-export default function ProductSearchBar({
+const ProductSearchBar: React.FunctionComponent<ProductSearchBarProps> =({
                                            placeholder = "e.g. Adhesive, GlassWool Roll, Rockwool Panel...",
                                            className = "",
-                                         }: ProductSearchBarProps) {
+                                         })=> {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -102,3 +102,5 @@ export default function ProductSearchBar({
       </div>
   );
 }
+
+export default ProductSearchBar;

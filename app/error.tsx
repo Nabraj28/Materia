@@ -1,19 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import { AlertTriangle, RefreshCw, Home } from "lucide-react";
 
-export default function GlobalError({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
+type GlobalErrorProps = {
   reset: () => void;
-}) {
-  useEffect(() => {
-    console.error("Global Application Error:", error);
-  }, [error]);
+};
+
+const GlobalError: React.FunctionComponent<GlobalErrorProps> = ({ reset }) => {
 
   return (
     <main className="flex-1 flex items-center justify-center container-main padding-y min-h-[60vh]">
@@ -54,4 +49,6 @@ export default function GlobalError({
       </div>
     </main>
   );
-}
+};
+
+export default GlobalError;

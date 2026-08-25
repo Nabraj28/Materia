@@ -36,6 +36,7 @@ const FilterPanel: React.FunctionComponent<FilterPanelProps> = ({
   categoryCounts = {},
   className = '',
 }) => {
+
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -147,7 +148,7 @@ const FilterPanel: React.FunctionComponent<FilterPanelProps> = ({
           )}
         </div>
 
-        {/* 1. Category Filter */}
+        {/* Category Filter */}
         <div className="space-y-2.5 border-b border-gray-100 pb-4">
           <h3 className="text-sm font-semibold text-gray-900">
             Category
@@ -202,7 +203,7 @@ const FilterPanel: React.FunctionComponent<FilterPanelProps> = ({
           )}
         </div>
 
-        {/* 2. Scope Filter (Multi-select) */}
+        {/* Scope Filter (Multi-select) */}
         <div className="space-y-2.5 border-b border-gray-100 pb-4">
           <h3 className="text-sm font-semibold text-gray-900">
             Scope
@@ -294,4 +295,4 @@ const FilterPanel: React.FunctionComponent<FilterPanelProps> = ({
   )
 }
 
-export default FilterPanel
+export default FilterPanel;

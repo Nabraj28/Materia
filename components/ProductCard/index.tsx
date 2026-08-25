@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Package } from "lucide-react";
@@ -16,12 +17,13 @@ interface ProductCardProps {
   viewMode?: "grid" | "list";
   onAdd?: (product: Product) => void;
 }
-
-export default function ProductCard({
+const ProductCard: React.FunctionComponent<ProductCardProps> = ({
   product,
   viewMode = "grid",
-}: ProductCardProps) {
+})=> {
+
   const productId = product.slug || product.id || "";
+
   const categoryName =
     typeof product.category === "string"
       ? product.category
@@ -34,7 +36,6 @@ export default function ProductCard({
 
   if (viewMode === "list") {
     return (
-      // Fix #2: replace outline-none with focus-visible ring
       <Link
         href={`/products/${productId}`}
         className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded"
@@ -78,14 +79,13 @@ export default function ProductCard({
   }
 
   return (
-    // Fix #2: replace outline-none with focus-visible ring
     <Link
       href={`/products/${productId}`}
       className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded h-full block"
     >
       <article className="bg-white border border-gray-200 flex flex-col hover:border-primary transition-colors rounded overflow-hidden shadow-xs hover:shadow-sm h-full">
         {/* Product Image */}
-        <div className="aspect-[3/2] sm:aspect-square bg-gray-50 relative w-full border-b border-gray-200 p-4 overflow-hidden">
+        <div className="aspect-3/2 sm:aspect-square bg-gray-50 relative w-full border-b border-gray-200 p-4 overflow-hidden">
           {imageSrc ? (
             <Image
               src={imageSrc}
@@ -97,7 +97,9 @@ export default function ProductCard({
           ) : (
             <div className="w-full h-full flex flex-col items-center justify-center text-gray-400 gap-1.5">
               <Package className="w-10 h-10 stroke-1" aria-hidden="true" />
-              <span className="text-[11px] font-mono uppercase tracking-wider">No image</span>
+              <span className="text-[11px] font-mono uppercase tracking-wider">
+                No image
+              </span>
             </div>
           )}
         </div>
@@ -120,3 +122,5 @@ export default function ProductCard({
     </Link>
   );
 }
+
+export default ProductCard;

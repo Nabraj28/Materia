@@ -1,3 +1,4 @@
+import React from "react";
 import ProductsContent from "./ProductsContent";
 import { getCategories, getCategoryBySlug, getProducts } from "@/lib/product";
 
@@ -5,7 +6,8 @@ interface PageProps {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
-export default async function ProductsPage({ searchParams }: PageProps) {
+const ProductsPage: React.FunctionComponent<PageProps> = async({ searchParams })=> {
+
   const params = await searchParams;
 
   const categorySlug =
@@ -26,4 +28,6 @@ export default async function ProductsPage({ searchParams }: PageProps) {
         pagination={pagination}
       />
   );
-}
+};
+
+export default ProductsPage;

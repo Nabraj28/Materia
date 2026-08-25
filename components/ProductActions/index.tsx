@@ -7,7 +7,7 @@ interface ProductActionsProps {
   productName: string;
 }
 
-const ProductActions: React.FunctionComponent<ProductActionsProps> =({ productName }: ProductActionsProps)=> {
+const ProductActions: React.FunctionComponent<ProductActionsProps> =({ productName })=> {
 
   const [saved, setSaved] = useState(false);
 

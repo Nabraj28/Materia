@@ -16,7 +16,7 @@ export function ProductCardSkeleton({ viewMode = "grid" }: { viewMode?: "grid" |
 
   return (
     <div className="bg-white border border-gray-200 flex flex-col rounded overflow-hidden shadow-xs animate-pulse h-full">
-      <div className="aspect-[3/2] sm:aspect-square bg-gray-100 w-full" />
+      <div className="aspect-3/2 sm:aspect-square bg-gray-100 w-full" />
       <div className="p-4 space-y-3 flex-1">
         <div className="h-3 bg-gray-200 rounded w-20" />
         <div className="h-5 bg-gray-200 rounded w-4/5" />

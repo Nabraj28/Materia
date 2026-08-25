@@ -28,7 +28,6 @@ const SearchBar: React.FunctionComponent<SearchBarProps> = ({
       setInternalQuery(newVal);
     }
     onChange?.(newVal);
-    // If user cleared the input (e.g. backspaced all or clicked native clear button)
     if (newVal.trim() === "") {
       onSearch?.("");
     }

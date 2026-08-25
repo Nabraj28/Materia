@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PackageX, ArrowLeft, Home } from "lucide-react";
 
-export default function ProductNotFound() {
+const ProductNotFound =()=> {
   return (
     <main className="flex-1 flex items-center justify-center container-main padding-y min-h-[50vh]">
       <div className="max-w-md w-full text-center space-y-6 bg-white p-8 sm:p-10 border border-gray-200 rounded-lg shadow-xs">
@@ -41,3 +41,5 @@ export default function ProductNotFound() {
     </main>
   );
 }
+
+export default ProductNotFound;

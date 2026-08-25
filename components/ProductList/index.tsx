@@ -8,22 +8,22 @@ import {
   SearchX,
   RotateCcw
 } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Product } from "@prisma/client";
 import { PaginationData } from "@/types/product";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 import { loadMoreProducts } from "@/app/products/actions";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 interface ProductListSectionProps {
   initialProducts: Product[];
   pagination?: PaginationData;
 }
 
-export default function ProductListSection({
+const ProductListSection: React.FunctionComponent<ProductListSectionProps> =({
   initialProducts,
   pagination: initialPagination,
-}: ProductListSectionProps) {
+})=> {
 
   const searchParams = useSearchParams();
 
@@ -85,8 +85,12 @@ export default function ProductListSection({
       {/* Utilities Bar */}
       <div className="bg-white p-3 border border-gray-200 rounded flex items-center justify-between shadow-xs">
         <span className="text-xs sm:text-sm text-gray-600 font-medium">
-          Showing <strong className="text-gray-900">{allProducts.length}</strong> of{" "}
-          <strong className="text-gray-900">{totalResults}</strong> results
+          Showing <strong className="text-gray-900">
+          {allProducts.length}
+        </strong> of{" "}
+          <strong className="text-gray-900">
+            {totalResults}
+          </strong> results
         </span>
 
         <div className="flex items-center gap-1.5 sm:gap-2 border-l border-gray-200 pl-2.5 sm:pl-3">
@@ -157,7 +161,9 @@ export default function ProductListSection({
               className="inline-flex items-center gap-1.5 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-semibold rounded transition-colors cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" />
-              <span>Clear All Filters</span>
+              <span>
+                Clear All Filters
+              </span>
             </button>
           </div>
         </div>
@@ -181,7 +187,9 @@ export default function ProductListSection({
               onClick={() => router.push("/")}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-hover text-white text-xs font-semibold rounded transition-colors cursor-pointer shadow-xs"
             >
-              <span>Back to Homepage</span>
+              <span>
+                Back to Homepage
+              </span>
             </button>
           </div>
         </div>
@@ -226,3 +234,5 @@ export default function ProductListSection({
     </section>
   );
 }
+
+export default ProductListSection;

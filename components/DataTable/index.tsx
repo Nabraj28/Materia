@@ -11,7 +11,7 @@ type DataTableProps = {
     };
 };
 
-const DataTable: React.FC<DataTableProps> = ({ group }) => {
+const DataTable: React.FunctionComponent<DataTableProps> = ({ group }) => {
 
     if (!group.columns?.length) return null;
 
