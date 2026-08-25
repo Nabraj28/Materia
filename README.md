@@ -102,4 +102,5 @@ Being upfront about what isn't done yet, and why, rather than letting it be disc
 AI was used throughout, in line with the assignment's guidelines, and everything submitted was reviewed and understood before being included:
 
 **Architecture & Data:** Used AI for an initial consultation on how to design the product database schema, as well as to generate realistic dummy data and write the seed files.
+
 **Code Review & UI:** Leveraged AI assistants (specifically utilizing Next.js best practices, web design guidelines, and component building tools) to review the project, suggest improvements, and refine UI components.
