@@ -94,6 +94,7 @@ npm run dev
 Being upfront about what isn't done yet, and why, rather than letting it be discovered:
 
 - **Filters are currently simple.** The existing implementation handles basic category-based and property-based filtering. The natural next step is to evolve this into a fully dynamic, category-specific filtering system.
+- **UI placeholders.** Buttons like "Request Quote" and "Save to Project" are currently visual placeholders to demonstrate the intended UX. Wiring these up and building out deeper user interactions across the app is a primary next step.
 - **No product comparison or admin page.** These features were intentionally kept out of scope for this initial version. My priority was to ensure the core requirements i.e. product discovery, search, filtering, and detail views were robust and highly functional before expanding the feature set.
 
 ## Use of AI tools
